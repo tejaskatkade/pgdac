@@ -1,0 +1,25 @@
+oop
+--------
+
+c , cpp -> top to bottom approch
+java    -> bottom to top approch
+
+class -> collection of objects
+      -> blueprint
+      
+--> every class has its own property and behaviors
+    property  - data members
+    behaviors - member functions
+
+Need of OOP :
+- To represent them in coding language
+
+Objects are stored in heap area
+
+constructor - use to initialize the instance variable
+            - same name as a class
+            - special method without return type
+            - Types - default constructor
+                    - parameterized constructor
+                    - 
+                   
