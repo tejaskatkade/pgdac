@@ -1,0 +1,45 @@
+        final 
+--------------------------------
+- Wrapper classes
+- String
+- java.lang.System
+- java.time.LocalDate
+     public static LocalDate now();
+
+
+System.out.println
+
+out -> reference variable of java.io.PrintStream class
+
+public static final PrintStream out = null;
+
+println() -> non static  overloaded method of java.io.PrintStream class
+
+public void println()
+public void print()
+public java.io.PrintStream printf()
+
+
+-------------------------------------------
+null -> literal 
+     -> use to intialize reference / non primitive
+
+------------- WRAPPER -----------------------
+All Wrapper classes are final and Immutable
+                       --------------------                            
+
+                       Object
+                   <<concreate>>
+                        |
+     ___________________-__________________________
+    |                   |                          |
+ Boolean              Number                   Character
+<<final>>           <<abstract>>               <<final>>
+                        |
+                        |
+    ____________________-___________________________________
+   |           |          |          |          |           | 
+  Byte       Short     Integer     Float      Double       Long
+<<final>>  <<final>>  <<final>>  <<final>>   <<final>>   <<final>>
+
+

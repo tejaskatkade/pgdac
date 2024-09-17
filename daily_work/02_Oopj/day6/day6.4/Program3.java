@@ -12,7 +12,7 @@ public class Program3 {
 
     public static void main(String[] args) {
         
-        System.out.println("Num1 : "+ num1); // NOT OK
+        //System.out.println("Num1 : "+ num1); // NOT OK
                                              // Cannot make a static reference to the non-static field
 
         System.out.println("Num2 : "+ num2);

@@ -24,9 +24,7 @@ class Employee{
     }
 
     
-    String str1 = String.format(){
-
-    }
+    //String str1 = String.format();
     // public String getString(){
     //     return this.name +" "+this.empId+" "+this.departmnet+" "+this.designation;
     // }
