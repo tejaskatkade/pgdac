@@ -1,0 +1,15 @@
+demos
+ 1. Generics using object class
+ 2. Generics
+
+    - Box<Date> box = new Box<Date>();	//Date: Type argument
+    - Box<Date> b2 = new Box< >();	//OK: Type inference
+    - Box box = new Box();//Raw Type
+    - class Box<N extends Number>{	//N is Bounded Type Parameter
+    
+     }
+    - ArrayList<?> obj        // ? wild card represents Unknown Type
+    - ? extends Number => Upper Bounded Wild Card
+	  example : private static void print(ArrayList<? extends Number> list)
+    - ? super Integer : Lower Bouned wild card
+	  example : private static void print(ArrayList<? super Integer> list)
