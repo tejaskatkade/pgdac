@@ -1,0 +1,17 @@
+IO & NIO
+
+IO  - Input Ouput
+NIO - New Input Output 
+
+- IO - stream based  
+- NIO- buffer based
+
+- IO Blocking I/O 
+- NIO Non-blocking I/O
+    Read and Write is done in different channel.
+
+
+- 
+-NIO channel, Buffer, Selector
+Selectors : - decide channel i.e. which is free
+

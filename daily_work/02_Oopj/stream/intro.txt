@@ -1,0 +1,17 @@
+Thank you for the opportunity. My name is Tejas Katkade, and I'm from Nashik, Maharashtra. 
+I have a strong academic foundation. I have completed my 10th and 12th from Maharashtra state board, having secured 91.80% in my 10th grade and 75.08% in my 12th grade. 
+I graduated with a Bachelor's degree in Information Technology from Pune University, achieving a CGPA of 8.82. In 2024
+To further enhance my skills, I am currently pursuing a Postgraduate Diploma in Advanced Computing at CDAC Mumbai.
+
+Throughout my academic journey, I've developed a solid understanding of programming languages like Java, C and CPP.
+I have also worked with frameworks such as Spring Boot, which I also utilized in projects like developing a blog application.
+
+In this project, I built RESTful APIs and managed data using JPA, it helps me to gain valuable experience in backend development to create scalable, efficient solutions
+
+In terms of extracurricular activities, I enjoy playing chess and badminton, and I also love reading books and listening music.
+During my engineering, I was actively involved in a clubs, where we collaborated on coding projects and organized various technical workshops.
+
+I have been recognized for my active participation and dedication. I received the Ideal Student Award and the Most Active Student of the year Award
+
+My aspiration is to continuously learn and adapt to new technologies. I am always looking for ways to improve my skills. This drive for continuous learning and 
+improvement is what motivates me to take on challenging tasks and find solutions.

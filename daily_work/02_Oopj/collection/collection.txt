@@ -1,0 +1,11 @@
+
+JAVA COLLECTION FRAMEWORK
+- Framework provides us the architecture to manage these "group of objects" i.e. add, update, delete, search etc;
+- Collection is nothing but a group of objects
+- java.util pkg
+
+Need :
+- Before java collection framework, we have Array, Vector, Hash tables.
+- but there is no common interface, so its difficult to remember the methods for each.
+
+

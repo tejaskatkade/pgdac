@@ -29,10 +29,11 @@ public class Program {
         Printable p = Program::show;
         p.print("Welcome to CDAC");
             
-            //2. Using static Method
+            //2. Using non static Method
         
         Program program = new Program();
         Printable p1 = program::display;
+       // Printable p2 = new Program()::display;
         p1.print("Welcome to CDAC");
 
         

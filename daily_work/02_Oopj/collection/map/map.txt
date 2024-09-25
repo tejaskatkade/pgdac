@@ -1,0 +1,88 @@
+Why map is not child of Collection
+
+- all the methods present in Collection partcularly deal with values only, the have list have values
+- but in map we have key and value
+- value is mapped with particular key. so we have key-value mapping
+- so it require total different methods as functionallity is changed
+- so all the methods present in Collection are no use of map
+- no point bringing map under Collection
+
+>>> Map prop
+    - interface
+    - Object that maps key to value
+    - Can not containt duplicate key (value can be duplicate)
+    - implementations are : 
+            - HashMap : - do not maintain INSERTION ORDER
+                        - Not Thread Safe
+                        - can store null key or value
+            - HashTable : - Synchronised version of hasmap
+                          - Thread Safe  (Synchronized version of HashMap)
+                          - can NOT store null key or value
+                          - 
+            - LinkedHashMap : maintains the insertion order
+            - TreeMap : sort the data internally
+
+
+Load Factory
+Entry<K,V>  : sub/ nested interface present in Map<K,V> interface
+Re-Hashing
+Performance
+
+how hasmap stores data
+
+array of Entry<K,V> 
+in HasMap there is class Node<K,V> implements Map.Entry<K,V>
+so it is array of Node as Entry is interface i.e. we need implementation of Entry
+
+Hence, it is array of Node<K,V>
+and it contains 4 things 
+    - final int Hashing
+    - final K key
+    - V value
+    - Node<K,V> next
+
+they define that array as
+
+transient Node<K,v> [] table;
+default_initial_capasity = 16 (size)
+
+to insert data we use put() method as put(1,"Tejas")
+so the put method steps are : 
+    - 1.  hashing  - on  (key) 
+          compute hash  
+          then hash % size of table i.e. I will get one of the index only
+
+If collision is happent 
+    - it check if the key is same 
+    - if the key is not same then then it create new node assign hash, key and value and next is null but the already present key will 
+      point to this node 
+      i.e. we make chaining / use linkedList
+
+-get()
+    - do Hashing
+
+Contract between HashCode  and  equal method
+
+1. if two Object are same then there hash should be  same
+2. if hash of two object is same then it does not mean that the objects are same
+ 
+How HashMap achieve average o(n) time complexity for searching finding and deletion
+worst : o(n)
+
+Disadvatage : if the hash geneate same value for all
+but to maintain it following things helps
+    1. Load factor : 
+       the defaul value is  = 0.75f;
+       Means when 75% table gets full then Rehashing is done 
+    2. TREEIFY_THRESHOLD = 8
+       As soon as your Linked List size ( binCount ) become 8 and you are trying to insert the 9th Node 
+       then it will convert linkedList into tree (Balanced Binary Search Treee) (may be Red Black Tree) 
+       so its Search complexity is log(n)
+ 
+
+
+
+
+
+
+
