@@ -1,0 +1,50 @@
+/**
+ *           
+ *                          _______________________________
+ *                            Divide and conquer strategy
+ *                          _______________________________
+ * 
+ *                                ___________
+ *                               | Problem   |
+ *                              / ---------- \  
+ *                             /              \
+ *                        ___ /_______        _\____________
+ *                       |Sub- Problem|      | Sub-Problem | 
+ *                        ------------        -------------
+ *                          \                   /
+ *                           \                 /
+ *                            \               /     
+ *                          ------------------------
+ *                          | solutionn for problem |
+ *                          -------------------------
+ * 
+ * 
+ * Divide and conquer is an algorithm design paradigm that solves as problem using following steps
+ * 
+ *  1 -> Dividing  : Breaking the problem into smaller subproblems
+ *  2 -> Conquerig : solving each problem recursively
+ *  3 -> Combining : Merging the solutions of subproblems to form the solution to the original problem
+ * 
+ *  Charecteristics :-
+ *  -  1. Recursion   : divide and conquer often uses recursive technique
+ *  -  2. Efficiency  : Helps to reduce complex problm into simple, managable ones;
+ *  -  3. Optimal     : The problm can be broken into smaller subproblems, each of which is a problem 
+ *        solution 
+ *  -  4. Overlapping : Subproblem are independent and do not share the data 
+ * 
+ *  Advantages:
+ *  1. Efficiency  : Reduce the complexity of a problem
+ *  2. Parallelism : Subproblems can often be solved independently, making it suitable for parallel computing
+ *  3. Modularity  : Problms are solved in modular way, improving code structure and redability
+ * 
+ * Disadvates -
+ * 1. Space complexity
+ * 2. Overhead for execution
+ * 
+ * May require external space due to recursive space so it can be overhead 
+ * 
+ * Applications-
+ * 1. searching : Binary Search
+ * 2. Sorting   : Merge sort  and quick sort
+ * 
+ */

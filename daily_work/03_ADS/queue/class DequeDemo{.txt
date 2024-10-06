@@ -1,0 +1,129 @@
+class DequeDemo{
+	Static int[] DQ;
+	Static int size;
+
+	static int front = -1;
+	static int rear = -1;
+	
+	public DequeDemo() {
+		this(5)
+	};
+	public DequeDemo(int size) {
+		DQ = new int[size];
+	};
+
+
+	public void isEmpty(){
+		return front == -1;
+	}
+
+	public void isFull(){
+		return ((front == 0 && rear == size-1) || rear == front + 1);	
+	}
+
+
+	// 1 2 3 4 5 6 7
+	public void enterFront(int data){
+		if(isFull()) {
+			System.out.println("Queue is full");
+		}else{
+			
+			if(front == -1){
+				front = 0;
+				rear = 0;
+			}else if(front == 0){
+				front = size -1;
+			}else{
+				front = front - 1;
+			}
+			DQ[front] = data;
+		}
+		
+	}
+
+	public void enterRear(int data){
+		if(isFull()) {
+			System.out.println("Queue is full");
+		}else{
+			
+			if(front == -1){
+				front = 0;
+				rear = 0;
+			}else if(rear = size -1){
+				rear = 0;
+			}else{
+				rear = rear + 1;
+			}
+			DQ[rear] = data;
+		}
+
+	}
+
+	public int deleteFront(){
+		if(isEmpty()) {
+			System.out.println("Queue is Empty");
+		}else{
+			int val = DQ[front];
+			if(front == rear){
+				front = -1;
+				rear = -1
+			}else if(front == size -1;){
+				front = 0;
+			}else{
+				front = front - 1;
+			}
+			return val;
+		}
+
+	}
+	public int deleteRear(){
+		if(isEmpty()) {
+			System.out.println("Queue is Empty");
+		}else{
+			int val = DQ[rear];
+
+			if(front == rear){
+				front = -1;
+				rear = -1
+			}else if(rear == 0;){
+				rear = size -1;
+			}else if{
+				rear = rear - 1;
+			}
+
+			return val;
+		}
+
+	}
+
+	public void display(){
+		if(isEmpty()) {
+			System.ou.println("Queue is empty");
+		}else{ 
+			while(front != rear){
+				System.out.println("[ "DQ[front]+" -> ");
+				if(front == 0){
+					front = size - 1;
+				}else{
+					front = front - 1
+				}				
+			}
+			System.out.println(DQ[front]" ]");
+		}
+	}
+} 
+
+public class Main{
+
+	public static void main(String[] args) {
+		DequeDemo deque = new DequeDemo();
+		deque.enterFront(10);
+		deque.enterFront(20);
+		deque.enterFront(30);
+		deque.enterRear(40);
+		deque.enterRear(50);
+		deque.enterFront(60);
+		deque.display();
+
+	} 
+} 

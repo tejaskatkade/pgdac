@@ -1,0 +1,32 @@
+sorting :
+
+ - sorting refers to arranging elements insome logical order
+ -  Ascending or descending
+
+Types of sorting
+
+ 1. Internal sorting
+  - If all the data i.e. to be sorted can be adjusted at a time in main memory then internal sorting methods are used.
+  
+ 2. External sorting 
+  - If all the data to be sorted can not be accomodate in the memory at the same time 
+    and some has to use auxilary memory, then it is external sorting.
+
+
+Stable and Not Stable Sorting :
+ 
+ Array = [34, 67, 89, 23, 67`, 90, 34` ,56, 67``]
+
+
+ After sortig
+ [23, 34, 34`, 56, 67, 67`, 67`` , 89, 90]  <-- stable algorithm
+      1   2        1   2    3 
+     34  34        67  67   67
+     
+ Stable : The order of the duplicate elements does not get change. 
+ If a sorting algorithm after sorting the contents,
+ does not changes the sequence of similar content in which they appear, is called stabel sorting
+
+ Unstable
+ If a sorting algorithm after sorting the contents,
+ changes sequence of similar content in which they appear, is called unstabel sorting.
