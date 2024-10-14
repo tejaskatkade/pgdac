@@ -1,0 +1,116 @@
+Exercise 3
+
+1. Display all the Supplier names with the initial letter capital.
+
+mysql> select concat( substr( Upper(sname),1,1), substr( sname,2 ) )  "Supplier Names" from supplier
+;
++----------------+
+| Supplier Names |
++----------------+
+| Supplier1      |
+| Supplier2      |
+| Supplier3      |
+| Supplier4      |
++----------------+
+4 rows in set (0.00 sec)
+
+mysql> select concat( substr( Upper( lower(sname) ),1,1), substr( lower(sname),2 ) )  "Supplier Name
+s" from supplier;
++----------------+
+| Supplier Names |
++----------------+
+| Supplier1      |
+| Supplier2      |
+| Supplier3      |
+| Supplier4      |
++----------------+
+4 rows in set (0.00 sec)
+
+2. Display all the Supplier names in upper case.
+mysql> select UPPER(sname) from supplier;
++--------------+
+| UPPER(sname) |
++--------------+
+| SUPPLIER1    |
+| SUPPLIER2    |
+| SUPPLIER3    |
+| SUPPLIER4    |
++--------------+
+4 rows in set (0.00 sec)
+
+3. Display all the Supplier names in lower case.
+
+mysql> select lower(sname) from supplier;
++--------------+
+| lower(sname) |
++--------------+
+| supplier1    |
+| supplier2    |
+| supplier3    |
+| supplier4    |
++--------------+
+4 rows in set (0.00 sec)
+
+4. Display all the Supplier names padded to 25 characters, with spaces on the left.
+
+mysql> select lpad(sname,25,' ') "Suppliers" from supplier;
++---------------------------+
+| Suppliers                 |
++---------------------------+
+|                 Supplier1 |
+|                 Supplier2 |
+|                 Supplier3 |
+|                 Supplier4 |
++---------------------------+
+4 rows in set (0.00 sec)
+
+5. Display all the Supplier names (with ‘su’ replaced by ‘ro’).
+ HINT: REPLACE.
+
+mysql> select replace(sname,'Su','ro') "Suppliers" from supplier;
++-----------+
+| Suppliers |
++-----------+
+| ropplier1 |
+| ropplier2 |
+| ropplier3 |
+| ropplier4 |
++-----------+
+4 rows in set (0.00 sec)
+
+
+
+6. Implement the above command such that ‘s’ is replaced with ‘r’ and ‘u’ is replaced with ‘o’.
+
+mysql> select replace(replace(lower(sname),'s','r'),'u','o')  "Suppliers" f
+rom supplier;
++-----------+
+| Suppliers |
++-----------+
+| ropplier1 |
+| ropplier2 |
+| ropplier3 |
+| ropplier4 |
++-----------+
+4 rows in set (0.00 sec)
+
+
+7. Display the Supplier names and the lengths of the names.
+
+mysql> select sname, length(sname) length from supplier;
++-----------+--------+
+| sname     | length |
++-----------+--------+
+| Supplier1 |      9 |
+| Supplier2 |      9 |
+| Supplier3 |      9 |
+| Supplier4 |      9 |
++-----------+--------+
+4 rows in set (0.00 sec)
+
+
+8. Use the soundex function to search for a supplier by the name of ‘BLOKE’.
+
+9. Display the Supplier name and the status (as Ten, Twenty, Thirty, etc.).
+
+10. Display the current day (e.g. Thursday). 

@@ -1,0 +1,105 @@
+Exercise 2
+
+1. Display the Supplier table in the descending order of CITY.
+
+mysql> select * from supplier
+    -> order by city desc;
++------+-----------+--------+--------+
+| S#   | Sname     | Status | City   |
++------+-----------+--------+--------+
+| S2   | Supplier2 |     20 | Pune   |
+| S3   | Supplier3 |     30 | Nashik |
+| S1   | Supplier1 |     10 | Mumbai |
+| S4   | Supplier4 |     40 | Delhi  |
++------+-----------+--------+--------+
+4 rows in set (0.00 sec)
+
+
+2. Display the Part Table in the ascending order of CITY and within the city in the ascending order of Part names.
+
+mysql> select * from Parts
+    -> order by city, Pname;
++------+-------+--------+--------+--------+
+| P#   | Pname | Color  | Weight | City   |
++------+-------+--------+--------+--------+
+| P4   | Part4 | Yellow |     15 | Delhi  |
+| P1   | Part1 | Red    |   12.5 | Mumbai |
+| P3   | Part3 | Green  |   8.75 | Nashik |
+| P2   | Part2 | Blue   |      5 | Pune   |
++------+-------+--------+--------+--------+
+4 rows in set (0.00 sec)
+
+3. Display all the Suppliers with a status between 10 and 20.
+
+
+mysql> select * from supplier
+    -> where status between 10 and 20;
++------+-----------+--------+--------+
+| S#   | Sname     | Status | City   |
++------+-----------+--------+--------+
+| S1   | Supplier1 |     10 | Mumbai |
+| S2   | Supplier2 |     20 | Pune   |
++------+-----------+--------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select * from supplier
+    -> where status in(10 , 20);
++------+-----------+--------+--------+
+| S#   | Sname     | Status | City   |
++------+-----------+--------+--------+
+| S1   | Supplier1 |     10 | Mumbai |
+| S2   | Supplier2 |     20 | Pune   |
++------+-----------+--------+--------+
+2 rows in set (0.00 sec)
+
+4. Display all the Parts and their Weight, which are not in the range of 10 and 15.
+
+mysql> select * from parts
+    -> where Weight NOT IN(10 , 15);
++------+-------+-------+--------+--------+
+| P#   | Pname | Color | Weight | City   |
++------+-------+-------+--------+--------+
+| P1   | Part1 | Red   |   12.5 | Mumbai |
+| P2   | Part2 | Blue  |      5 | Pune   |
+| P3   | Part3 | Green |   8.75 | Nashik |
++------+-------+-------+--------+--------+
+3 rows in set (0.00 sec)
+
+5. Display all the Part names starting with the letter ‘S’.
+
+mysql> select * from parts
+    -> where pname like 'P%';
++------+-------+--------+--------+--------+
+| P#   | Pname | Color  | Weight | City   |
++------+-------+--------+--------+--------+
+| P1   | Part1 | Red    |   12.5 | Mumbai |
+| P2   | Part2 | Blue   |      5 | Pune   |
+| P3   | Part3 | Green  |   8.75 | Nashik |
+| P4   | Part4 | Yellow |     15 | Delhi  |
++------+-------+--------+--------+--------+
+4 rows in set (0.04 sec)
+
+6. Display all the Suppliers, belonging to cities starting with the letter ‘L’.
+
+mysql> select * from supplier
+    -> where city like 'N%';
++------+-----------+--------+--------+
+| S#   | Sname     | Status | City   |
++------+-----------+--------+--------+
+| S3   | Supplier3 |     30 | Nashik |
++------+-----------+--------+--------+
+1 row in set (0.00 sec)
+
+7. Display all the Projects, with the third letter in JNAME as ‘n’. 
+
+mysql> select * from projects
+    -> where jname like '__o%';
++------+----------+--------+
+| J#   | Jname    | City   |
++------+----------+--------+
+| J1   | Project1 | Mumbai |
+| J2   | Project2 | Pune   |
+| J3   | Project3 | Nashik |
+| J4   | Project4 | Delhi  |
++------+----------+--------+
+4 rows in set (0.00 sec)
