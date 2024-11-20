@@ -1,0 +1,397 @@
+--Fuctions
+
+mysql> select * from cust;
++-------+-------+
+| Fname | Lname |
++-------+-------+
+| Arun  | Purun |
+| Tarun | Arun  |
+| Sirun | Kirun |
+| Nutan | Purun |
++-------+-------+
+4 rows in set (0.00 sec)
+
+1. concat()
+
+mysql> select concat(Fname,Lname) from cust;
++---------------------+
+| concat(Fname,Lname) |
++---------------------+
+| ArunPurun           |
+| TarunArun           |
+| SirunKirun          |
+| NutanPurun          |
++---------------------+
+4 rows in set (0.04 sec)
+
+mysql> select concat(Fname,Lname) "Full Name" from cust;
++------------+
+| Full Name  |
++------------+
+| ArunPurun  |
+| TarunArun  |
+| SirunKirun |
+| NutanPurun |
++------------+
+4 rows in set (0.00 sec)
+
+mysql> select concat(concat(Fname,' '),Lname) "Name" from cust;
++-------------+
+| Name        |
++-------------+
+| Arun Purun  |
+| Tarun Arun  |
+| Sirun Kirun |
+| Nutan Purun |
++-------------+
+4 rows in set (0.00 sec)
+
+2. UPPER()
+mysql> select UPPER(Fname) from cust;
++--------------+
+| UPPER(Fname) |
++--------------+
+| ARUN         |
+| TARUN        |
+| SIRUN        |
+| NUTAN        |
++--------------+
+4 rows in set (0.00 sec)
+
+3. Lower()
+mysql> select LOWER(Fname) from cust;
++--------------+
+| LOWER(Fname) |
++--------------+
+| arun         |
+| tarun        |
+| sirun        |
+| nutan        |
++--------------+
+4 rows in set (0.05 sec)
+
+4. lpad
+
+mysql> select LPAD(Fname,20,' ') from cust;
++----------------------+
+| LPAD(Fname,20,' ')   |
++----------------------+
+|                 Arun |
+|                Tarun |
+|                Sirun |
+|                Nutan |
++----------------------+
+4 rows in set (0.05 sec)
+
+5. rpad
+
+mysql> select RPAD(Fname,25,' ') from cust;
++---------------------------+
+| RPAD(Fname,25,' ')        |
++---------------------------+
+| Arun                      |
+| Tarun                     |
+| Sirun                     |
+| Nutan                     |
++---------------------------+
+4 rows in set (0.04 sec)
+
+
+6. ltrim()
+
+mysql> select ltrim(fname) from cust;
++--------------+
+| ltrim(fname) |
++--------------+
+| Arun         |
+| Tarun        |
+| Sirun        |
+| Nutan        |
++--------------+
+4 rows in set (0.00 sec)
+
+
+mysql> select ltrim(lPAD(Fname,25,' ')) from cust;
++---------------------------+
+| ltrim(lPAD(Fname,25,' ')) |
++---------------------------+
+| Arun                      |
+| Tarun                     |
+| Sirun                     |
+| Nutan                     |
++---------------------------+
+4 rows in set (0.00 sec)
+
+mysql> select rtrim(fname) from cust;
++--------------+
+| rtrim(fname) |
++--------------+
+| Arun         |
+| Tarun        |
+| Sirun        |
+| Nutan        |
++--------------+
+4 rows in set (0.00 sec)
+
+mysql> select trim(fname) from cust;
++-------------+
+| trim(fname) |
++-------------+
+| Arun        |
+| Tarun       |
+| Sirun       |
+| Nutan       |
++-------------+
+4 rows in set (0.00 sec)
+
+7. substr()
+
+mysql> select substr(fname,3,2) from cust;
++-------------------+
+| substr(fname,3,2) |
++-------------------+
+| un                |
+| ru                |
+| ru                |
+| ta                |
++-------------------+
+4 rows in set (0.00 sec)
+
+mysql> select substr('Arun',3,2) from cust;
++--------------------+
+| substr('Arun',3,2) |
++--------------------+
+| un                 |
+| un                 |
+| un                 |
+| un                 |
++--------------------+
+4 rows in set (0.00 sec)
+
+mysql> select substr('Arun',2,3) from cust;
++--------------------+
+| substr('Arun',2,3) |
++--------------------+
+| run                |
+| run                |
+| run                |
+| run                |
++--------------------+
+4 rows in set (0.00 sec)
+
+mysql> select substr('Arun',2,3);
++--------------------+
+| substr('Arun',2,3) |
++--------------------+
+| run                |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select substr('Arun',2,3) from dual;
++--------------------+
+| substr('Arun',2,3) |
++--------------------+
+| run                |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select substr('New York',5);
++----------------------+
+| substr('New York',5) |
++----------------------+
+| York                 |
++----------------------+
+1 row in set (0.00 sec)
+
+mysql> select substr('New York',-4);
++-----------------------+
+| substr('New York',-4) |
++-----------------------+
+| York                  |
++-----------------------+
+1 row in set (0.03 sec)
+
+mysql> select substr('New York',-4,2);
++-------------------------+
+| substr('New York',-4,2) |
++-------------------------+
+| Yo                      |
++-------------------------+
+1 row in set (0.00 sec)
+
+Replace
+
+mysql> select replace(fname,'un','xy') from cust;
++--------------------------+
+| replace(fname,'un','xy') |
++--------------------------+
+| Arxy                     |
+| Tarxy                    |
+| Sirxy                    |
+| Nutan                    |
++--------------------------+
+4 rows in set (0.00 sec)
+
+
+mysql> select instr(empname,'a') from emp;
++--------------------+
+| instr(empname,'a') |
++--------------------+
+|                  1 |
+|                  3 |
+|                  1 |
+|                  0 |
+|                  0 |
+|                  4 |
++--------------------+
+6 rows in set (0.04 sec)
+
+mysql> select length(empname) from emp;
++-----------------+
+| length(empname) |
++-----------------+
+|               5 |
+|               5 |
+|               5 |
+|               4 |
+|               4 |
+|               5 |
++-----------------+
+6 rows in set (0.04 sec)
+
+mysql> select ascii(empname) from emp;
++----------------+
+| ascii(empname) |
++----------------+
+|             65 |
+|             98 |
+|             65 |
+|             75 |
+|             70 |
+|             84 |
++----------------+
+6 rows in set (0.04 sec)
+
+
+mysql> select ascii(substr(empname,2)) from emp;
++--------------------------+
+| ascii(substr(empname,2)) |
++--------------------------+
+|                      100 |
+|                      108 |
+|                      108 |
+|                      105 |
+|                      111 |
+|                      101 |
++--------------------------+
+6 rows in set (0.00 sec)
+
+mysql> select ascii('Z');
++------------+
+| ascii('Z') |
++------------+
+|         90 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select ascii('A');
++------------+
+| ascii('A') |
++------------+
+|         65 |
++------------+
+1 row in set (0.00 sec)
+
+
+mysql> select ascii('A') from dual;
++------------+
+| ascii('A') |
++------------+
+|         65 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select char(65);
++--------------------+
+| char(65)           |
++--------------------+
+| 0x41               |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select char(65 using utf8);
++---------------------+
+| char(65 using utf8) |
++---------------------+
+| A                   |
++---------------------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> show character set;
++----------+---------------------------------+---------------------+--------+
+| Charset  | Description                     | Default collation   | Maxlen |
++----------+---------------------------------+---------------------+--------+
+| armscii8 | ARMSCII-8 Armenian              | armscii8_general_ci |      1 |
+| ascii    | US ASCII                        | ascii_general_ci    |      1 |
+| big5     | Big5 Traditional Chinese        | big5_chinese_ci     |      2 |
+| binary   | Binary pseudo charset           | binary              |      1 |
+| cp1250   | Windows Central European        | cp1250_general_ci   |      1 |
+| cp1251   | Windows Cyrillic                | cp1251_general_ci   |      1 |
+| cp1256   | Windows Arabic                  | cp1256_general_ci   |      1 |
+| cp1257   | Windows Baltic                  | cp1257_general_ci   |      1 |
+| cp850    | DOS West European               | cp850_general_ci    |      1 |
+| cp852    | DOS Central European            | cp852_general_ci    |      1 |
+| cp866    | DOS Russian                     | cp866_general_ci    |      1 |
+| cp932    | SJIS for Windows Japanese       | cp932_japanese_ci   |      2 |
+| dec8     | DEC West European               | dec8_swedish_ci     |      1 |
+| eucjpms  | UJIS for Windows Japanese       | eucjpms_japanese_ci |      3 |
+| euckr    | EUC-KR Korean                   | euckr_korean_ci     |      2 |
+| gb18030  | China National Standard GB18030 | gb18030_chinese_ci  |      4 |
+| gb2312   | GB2312 Simplified Chinese       | gb2312_chinese_ci   |      2 |
+| gbk      | GBK Simplified Chinese          | gbk_chinese_ci      |      2 |
+| geostd8  | GEOSTD8 Georgian                | geostd8_general_ci  |      1 |
+| greek    | ISO 8859-7 Greek                | greek_general_ci    |      1 |
+| hebrew   | ISO 8859-8 Hebrew               | hebrew_general_ci   |      1 |
+| hp8      | HP West European                | hp8_english_ci      |      1 |
+| keybcs2  | DOS Kamenicky Czech-Slovak      | keybcs2_general_ci  |      1 |
+| koi8r    | KOI8-R Relcom Russian           | koi8r_general_ci    |      1 |
+| koi8u    | KOI8-U Ukrainian                | koi8u_general_ci    |      1 |
+| latin1   | cp1252 West European            | latin1_swedish_ci   |      1 |
+| latin2   | ISO 8859-2 Central European     | latin2_general_ci   |      1 |
+| latin5   | ISO 8859-9 Turkish              | latin5_turkish_ci   |      1 |
+| latin7   | ISO 8859-13 Baltic              | latin7_general_ci   |      1 |
+| macce    | Mac Central European            | macce_general_ci    |      1 |
+| macroman | Mac West European               | macroman_general_ci |      1 |
+| sjis     | Shift-JIS Japanese              | sjis_japanese_ci    |      2 |
+| swe7     | 7bit Swedish                    | swe7_swedish_ci     |      1 |
+| tis620   | TIS620 Thai                     | tis620_thai_ci      |      1 |
+| ucs2     | UCS-2 Unicode                   | ucs2_general_ci     |      2 |
+| ujis     | EUC-JP Japanese                 | ujis_japanese_ci    |      3 |
+| utf16    | UTF-16 Unicode                  | utf16_general_ci    |      4 |
+| utf16le  | UTF-16LE Unicode                | utf16le_general_ci  |      4 |
+| utf32    | UTF-32 Unicode                  | utf32_general_ci    |      4 |
+| utf8mb3  | UTF-8 Unicode                   | utf8mb3_general_ci  |      3 |
+| utf8mb4  | UTF-8 Unicode                   | utf8mb4_0900_ai_ci  |      4 |
++----------+---------------------------------+---------------------+--------+
+41 rows in set (0.01 sec)
+
+
+
+mysql> select * from emp where empname= 'Adams';
++-------+---------+-------+------+--------+
+| EmpNo | EmpName | Sal   | City | DeptNO |
++-------+---------+-------+------+--------+
+| 1     | Adams   | 12000 | Pune |     10 |
++-------+---------+-------+------+--------+
+1 row in set (0.00 sec)
+
+
+mysql> select * from emp where soundex(empname) =soundex (
+'Adaamss');
++-------+---------+-------+------+--------+
+| EmpNo | EmpName | Sal   | City | DeptNO |
++-------+---------+-------+------+--------+
+| 1     | Adams   | 12000 | Pune |     10 |
++-------+---------+-------+------+--------+
+1 row in set (0.04 sec)
+

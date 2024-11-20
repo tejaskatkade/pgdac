@@ -1,0 +1,28 @@
+Delimiter
+
+mysql> delimiter //
+mysql> show tables //
++---------------------+
+| Tables_in_dbt_class |
++---------------------+
+| cust                |
+| departments         |
+| emp                 |
+| emp1                |
+| employees           |
+| projects            |
+| tempp               |
++---------------------+
+7 rows in set (0.05 sec)
+
+mysql> select * from departments//
++---------------+-----------------+
+| department_id | department_name |
++---------------+-----------------+
+| 1             | IT              |
+| 2             | HR              |
+| 3             | Sales           |
+| 4             | Finance         |
+| 5             | Marketing       |
++---------------+-----------------+
+5 rows in set (0.04 sec)

@@ -1,0 +1,37 @@
+--Loops
+
+
+
+!!! WARNING !!!
+!!! DANGEROUS !!!
+-- DO NOT FORGET TO INCREMENT X VALUE
+
+delimiter //
+create procedure abc()
+begin 
+	declare x int default 1;
+	while x < 10 do
+		insert into tempp values(x, 'in While loop');
+	set x = x +1;
+	end while;
+end; //
+
+delimiter ;
+
+
+-- REPEAT
+delimiter //
+create procedure abc()
+begin 
+	declare x int default 100;
+	REPEAT
+		INSERT INTO TEMPP VALUES(X,'IN LOOP');
+	SET X = X + 1;
+	UNTIL X > 5;
+	END REPEAT;
+end; //
+delimiter ;
+
+
+
+

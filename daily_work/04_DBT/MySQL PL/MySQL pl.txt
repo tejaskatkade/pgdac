@@ -1,0 +1,210 @@
+MySQL pl
+
+delimiter //
+create procedure abc()
+  Begin
+  declare x int;
+  set x = 10;
+  insert into tempp values(x, 'inside abc');
+end; //
+delimiter ;
+
+-- declare x int; -> variable declaration
+-- created in server ram
+-- You can use all datatypes in MySQL
+
+
+-- Assigning Default value
+
+delimiter //
+ create procedure abc2()
+ begin
+    declare x char(15) default 'King';
+    declare y float default 3000;
+    declare z float default 0.4;
+    declare hra float;
+    set hra = y*z;
+    insert into tempp values(hra,'HRA');
+ end; //
+
+--passing parameters
+
+mysql> delimiter //
+mysql> create procedure abc(x char(15), y float, z float)
+
+    -> begin
+    -> declare hra float;
+    -> set hra = y*z;
+    -> insert into tempp values(y,x);
+    -> insert into tempp values(hra,'HRA');
+    -> end; //
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> delimiter ;
+mysql> call abc('Tejas',3000,0.4);
+
+
+// Getting value form table
+
+drop procedure abc;
+
+dmysql> delimiter //
+mysql> create procedure abc()
+    -> begin
+    -> declare x float;
+    -> select sal into x from emp
+    -> where empname = 'King';
+    -> insert into tempp values(x,'King');
+    -> end; //
+Query OK, 0 rows affected (0.07 sec)
+
+
+mysql> delimiter ;
+mysql> select * from tempp;
++-------+------------+
+| first | sec        |
++-------+------------+
+|    10 | inside abc |
+|  1200 | HRA        |
+|  3000 | Tejas      |
+|  1200 | HRA        |
++-------+------------+
+4 rows in set (0.00 sec)
+
+_____________________
+mysql> call abc();
+----------------------
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select * from tempp;
++-------+------------+
+| first | sec        |
++-------+------------+
+|    10 | inside abc |
+|  1200 | HRA        |
+|  3000 | Tejas      |
+|  1200 | HRA        |
+| 12000 | King       |
++-------+------------+
+5 rows in set (0.00 sec)
+
+
+-- To make it flexible
+
+delimiter //
+create procedure abc(y char(15))
+  Begin
+  declare x int;
+  select sal into x from emp
+  where empname = y;
+  insert into tempp values(x,y);
+end; //
+delimiter ;
+
+call abc('King');
+
+
+
+delimiter //
+create procedure abc()
+  Begin
+  declare x int;
+  declare y char(15);
+  select sal, job into x , y from emp
+  where empname = 'KING';
+  insert into tempp values(x,y);
+end; //
+delimiter ;
+
+
+
+
+-- IF STATEMENT
+
+delimiter //
+create procedure abc()
+  Begin
+  declare x int;
+    select sal into x from emp
+  where empname = 'KING';
+  if x > 4000 then
+  	insert into tempp values(x,'High Sal');
+  end if;
+end; //
+delimiter ;
+
+mysql> call abc();
+mysql> drop procedure abc;
+
+
+mysql> delimiter //
+mysql> create procedure abc()
+    -> begin
+    -> declare x int;
+    -> select sal into x from emp
+    -> where empname = 'King';
+    -> if x > 4000 then
+    ->  insert into tempp values(x,'High sal');
+    -> elseif x < 4000 then
+    ->  insert into tempp values(x,'Low sal');
+    -> else
+    ->  insert into tempp values(x,'Medium sal');
+    -> end if;
+    -> end; //
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> delimiter ;
+mysql> call abc();
+Query OK, 1 row affected (0.06 sec)
+
+mysql> select * from tempp;
++-------+----------+
+| first | sec      |
++-------+----------+
+| 12000 | High sal |
++-------+----------+
+1 row in set (0.00 sec)
+
+mysql> drop procedure abc;
+Query OK, 0 rows affected (0.05 sec)
+
+-- If we have Boolean value
+
+delimiter //
+create procedure abc()
+begin 
+	declare x Boolean default TRUE;
+	if x then
+		insert into temp values(1, 'Mumbai');
+	end if;
+end; //
+delimeter ;
+
+mysql> select * from tempp;
++-------+----------+
+| first | sec      |
++-------+----------+
+| 12000 | High sal |
+|     1 | Mumbai   |
++-------+----------+
+2 rows in set (0.00 sec)
+
+
+-- NOT
+
+delimiter //
+create procedure abc()
+begin 
+	declare x Boolean default TRUE;
+	if not x then
+		insert into temp values(1, 'Mumbai');
+	end if;
+end; //
+
+delimiter ;
+
+
+
+
+
+

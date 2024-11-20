@@ -1,0 +1,204 @@
+MySQL - SQL
+
+CREATE TABLE:
+
+mysql> create table emp(
+    -> Empno char(4),
+    -> Ename varchar(25),
+    -> Sal float,
+    -> City varchar(15),
+    -> Dob date
+    -> );
+Query OK, 0 rows affected (0.09 sec)
+
+
+mysql> select * from emp;
++-------+-------+------+--------+------------+
+| Empno | Ename | Sal  | City   | Dob        |
++-------+-------+------+--------+------------+
+| 1     | Amit  | 5000 | Mumbai | 1995-01-15 |
++-------+-------+------+--------+------------+
+1 row in set (0.00 sec)
+
+To view data
+
+mysql> select * from emp;
++-------+-------+------+--------+------------+
+| Empno | Ename | Sal  | City   | Dob        |
++-------+-------+------+--------+------------+
+| 1     | Amit  | 5000 | Mumbai | 1995-01-15 |
+| 2     | King  | 6000 | Delhi  | 1990-02-20 |
+| 3     | NULL  | 8000 | NULL   | NULL       |
++-------+-------+------+--------+------------+
+3 rows in set (0.00 sec)
+
+
+- To restrict the coloumn name
+
+mysql> select ename from emp;
++-------+
+| ename |
++-------+
+| Amit  |
+| King  |
+| NULL  |
++-------+
+3 rows in set (0.00 sec)
+
+
+mysql> select empno, ename, city from emp;
++-------+-------+--------+
+| empno | ename | city   |
++-------+-------+--------+
+| 1     | Amit  | Mumbai |
+| 2     | King  | Delhi  |
+| 3     | NULL  | NULL   |
++-------+-------+--------+
+3 rows in set (0.00 sec)
+
+- Position of column in table depends on pos in select statement
+mysql> select ename, empno, city from emp;
++-------+-------+--------+
+| ename | empno | city   |
++-------+-------+--------+
+| Amit  | 1     | Mumbai |
+| King  | 2     | Delhi  |
+| NULL  | 3     | NULL   |
++-------+-------+--------+
+3 rows in set (0.00 sec)
+
+
+WHERE CLAUSE to Restrict the row 
+
+mysql> select * from emp where empno < 3;
++-------+-------+------+--------+------------+
+| Empno | Ename | Sal  | City   | Dob        |
++-------+-------+------+--------+------------+
+| 1     | Amit  | 5000 | Mumbai | 1995-01-15 |
+| 2     | King  | 6000 | Delhi  | 1990-02-20 |
++-------+-------+------+--------+------------+
+2 rows in set (0.04 sec)
+
+mysql> select * from emp where sal > 5000 and sal < 8000;
++-------+-------+------+-------+------------+
+| Empno | Ename | Sal  | City  | Dob        |
++-------+-------+------+-------+------------+
+| 2     | King  | 6000 | Delhi | 1990-02-20 |
++-------+-------+------+-------+------------+
+1 row in set (0.04 sec)
+
+mysql> select * from emp where sal >= 5000 and sal <= 8000;
++-------+-------+------+--------+------------+
+| Empno | Ename | Sal  | City   | Dob        |
++-------+-------+------+--------+------------+
+| 1     | Amit  | 5000 | Mumbai | 1995-01-15 |
+| 2     | King  | 6000 | Delhi  | 1990-02-20 |
+| 3     | NULL  | 8000 | NULL   | NULL       |
++-------+-------+------+--------+------------+
+3 rows in set (0.00 sec)
+
+- BETWEEN
+
+mysql> select * from emp where sal between 5000 and 8000;
++-------+-------+------+--------+------------+
+| Empno | Ename | Sal  | City   | Dob        |
++-------+-------+------+--------+------------+
+| 1     | Amit  | 5000 | Mumbai | 1995-01-15 |
+| 2     | King  | 6000 | Delhi  | 1990-02-20 |
+| 3     | NULL  | 8000 | NULL   | NULL       |
++-------+-------+------+--------+------------+
+3 rows in set (0.04 sec)
+
+
+-AND
+- OR
+
+mysql> select * from emp
+    -> where (city = 'Mumbai' or city = 'Delhi' ) and sal > 5500;
++-------+-------+------+-------+------------+
+| Empno | Ename | Sal  | City  | Dob        |
++-------+-------+------+-------+------------+
+| 2     | King  | 6000 | Delhi | 1990-02-20 |
++-------+-------+------+-------+------------+
+1 row in set (0.00 sec)
+
+-COMPUTED COLUMN, VIRTUAL/ FAKE / PSEUDO COLUMN
+mysql> select sal*12 from emp;
++--------+
+| sal*12 |
++--------+
+|  60000 |
+|  72000 |
+|  96000 |
++--------+
+3 rows in set (0.04 sec)
+
+- ALIAS
+
+mysql> select ename "Employ Name", sal "Salary" from emp;
++-------------+--------+
+| Employ Name | Salary |
++-------------+--------+
+| Amit        |   5000 |
+| King        |   6000 |
+| NULL        |   8000 |
++-------------+--------+
+3 rows in set (0.00 sec)
+
+- Alias For computed column
+mysql> select sal*12 AS SALARY from emp;
++--------+
+| SALARY |
++--------+
+|  60000 |
+|  72000 |
+|  96000 |
++--------+
+3 rows in set (0.00 sec)
+
+
+mysql> select sal*12 AS "SALARY" from emp;
++--------+
+| SALARY |
++--------+
+|  60000 |
+|  72000 |
+|  96000 |
++--------+
+
+mysql> select sal*12 Salary from emp;
++--------+
+| Salary |
++--------+
+|  60000 |
+|  72000 |
+|  96000 |
++--------+
+
+mysql> select sal*12 Salary from emp
+    -> where sal*12 > 70000;
++--------+
+| Salary |
++--------+
+|  72000 |
+|  96000 |
++--------+
+2 rows in set (0.00 sec)
+
+
+
+DELETE TABLE
+
+mysql> show tables;
++---------------------+
+| Tables_in_dbt_class |
++---------------------+
+| emp                 |
++---------------------+
+1 row in set (0.05 sec)
+
+mysql> drop table emp;
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> show tables;
+Empty set (0.00 sec)

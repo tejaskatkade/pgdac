@@ -1,0 +1,135 @@
+MySQL pl
+
+delimiter //
+create procedure abc()
+  Begin
+  declare x int;
+  set x = 10;
+  insert into tempp values(x, 'inside abc');
+end; //
+delimiter ;
+
+-- declare x int; -> variable declaration
+-- created in server ram
+-- You can use all datatypes in MySQL
+
+
+passing parameters
+
+delimiter //
+create procedure abc( x char(15),
+		      y float,
+                      z float)
+  Begin
+  declare hra float;
+  set hra = y*z;
+  insert into tempp values(y,x);
+  insert into tempp values(Hra,'HRA');
+end; //
+delimiter ;
+
+call abc('KING',3000,0.4);
+
+
+// Getting value form table
+
+drop procedure abc;
+
+delimiter //
+create procedure abc()
+  Begin
+  declare x int;
+  select sal into x from emp
+  where ename = 'King';
+  insert into tempp values(x,'King');
+end; //
+delimiter ;
+
+call abc();
+
+
+-- To make it flexible
+delimiter //
+create procedure abc(y char(15))
+  Begin
+  declare x int;
+  select sal into x from emp
+  where ename = y;
+  insert into tempp values(x,y);
+end; //
+delimiter ;
+
+call abc('King');
+
+
+
+delimiter //
+create procedure abc()
+  Begin
+  declare x int;
+  declare y char(15);
+  select sal, job into x , y from emp
+  where ename = 'KING';
+  insert into tempp values(x,y);
+end; //
+delimiter ;
+
+
+-- IF STATEMENT
+
+delimiter //
+create procedure abc()
+  Begin
+  declare x int;
+    select sal into x from emp
+  where ename = 'KING';
+  if x > 4000
+  	insert into tempp values(x,'High Sal');
+  end if;
+end; //
+delimiter ;
+
+
+----- see for ss
+
+
+
+
+
+
+
+
+-
+
+-
+
+-- If we have Boolean value
+
+delimiter //
+create procedure abc()
+begin 
+	declare x Boolean default TRUE;
+	if x then
+		insert into temp values(1, 'Mumbai');
+	end if;
+end; //
+delimeter ;
+
+
+-- NOT
+
+delimiter //
+create procedure abc()
+begin 
+	declare x Boolean default TRUE;
+	if not x then
+		insert into temp values(1, 'Mumbai');
+	end if;
+end; //
+delimeter ;
+
+
+
+
+
+

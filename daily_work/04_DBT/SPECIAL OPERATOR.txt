@@ -1,0 +1,156 @@
+mysql> create table emp
+    -> (EmpNo CHAR(5), EmpName CHAR(20), Sal FLOAT, City CHAR(20), DeptNO INTEGER);
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> INSERT INTO emp
+    -> (EmpNo, EmpName, Sal, City, DeptNo)
+    -> values
+    -> ('1','Adams',1000,'Mumbai',10);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO emp
+    -> (EmpNo, EmpName, Sal, City, DeptNo)
+    -> values
+    -> ('2','blake',2000,'Delhi',10);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> INSERT INTO emp
+    -> (EmpNo, EmpName, Sal, City, DeptNo)
+    -> values
+    -> ('3','Allen',2500,'Mumbai',20),
+    -> ('4','King',3000,'Delhi',25),
+    -> ('5','Ford',4000,'Mumbai',30);
+Query OK, 3 rows affected (0.06 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from emp;
++-------+---------+------+--------+--------+
+| EmpNo | EmpName | Sal  | City   | DeptNO |
++-------+---------+------+--------+--------+
+| 1     | Adams   | 1000 | Mumbai |     10 |
+| 2     | blake   | 2000 | Delhi  |     10 |
+| 3     | Allen   | 2500 | Mumbai |     20 |
+| 4     | King    | 3000 | Delhi  |     25 |
+| 5     | Ford    | 4000 | Mumbai |     30 |
++-------+---------+------+--------+--------+
+5 rows in set (0.00 sec)
+
+- BLANK PADDED COMPARISON
+
+mysql> select * from emp
+    -> where empname > 'A' and empname < 'B';
++-------+---------+------+--------+--------+
+| EmpNo | EmpName | Sal  | City   | DeptNO |
++-------+---------+------+--------+--------+
+| 1     | Adams   | 1000 | Mumbai |     10 |
+| 3     | Allen   | 2500 | Mumbai |     20 |
++-------+---------+------+--------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select * from emp
+    -> where empname >= 'A' and empname < 'C';
++-------+---------+------+--------+--------+
+| EmpNo | EmpName | Sal  | City   | DeptNO |
++-------+---------+------+--------+--------+
+| 1     | Adams   | 1000 | Mumbai |     10 |
+| 2     | blake   | 2000 | Delhi  |     10 |
+| 3     | Allen   | 2500 | Mumbai |     20 |
++-------+---------+------+--------+--------+
+3 rows in set (0.00 sec)
+
+- SPECIAL OPERATOR (LIKE , BETWEEN)
+
+1. LIKE
+
+mysql> SELECT * FROM emp WHERE empname LIKE 'A%';
++-------+---------+------+--------+--------+
+| EmpNo | EmpName | Sal  | City   | DeptNO |
++-------+---------+------+--------+--------+
+| 1     | Adams   | 1000 | Mumbai |     10 |
+| 3     | Allen   | 2500 | Mumbai |     20 |
++-------+---------+------+--------+--------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM emp WHERE empname LIKE '__A%';
++-------+---------+------+--------+--------+
+| EmpNo | EmpName | Sal  | City   | DeptNO |
++-------+---------+------+--------+--------+
+| 1     | Adams   | 1000 | Mumbai |     10 |
+| 2     | blake   | 2000 | Delhi  |     10 |
++-------+---------+------+--------+--------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM emp WHERE empname LIKE '____';
++-------+---------+------+--------+--------+
+| EmpNo | EmpName | Sal  | City   | DeptNO |
++-------+---------+------+--------+--------+
+| 4     | King    | 3000 | Delhi  |     25 |
+| 5     | Ford    | 4000 | Mumbai |     30 |
++-------+---------+------+--------+--------+
+2 rows in set (0.00 sec)
+
+
+mysql> SELECT * FROM emp WHERE empname LIKE '%A%';
++-------+---------+------+--------+--------+
+| EmpNo | EmpName | Sal  | City   | DeptNO |
++-------+---------+------+--------+--------+
+| 1     | Adams   | 1000 | Mumbai |     10 |
+| 2     | blake   | 2000 | Delhi  |     10 |
+| 3     | Allen   | 2500 | Mumbai |     20 |
++-------+---------+------+--------+--------+
+3 rows in set (0.00 sec)
+
+
+
+2. BETWEEN
+
+mysql> select * from emp
+    -> where sal >= 2000 and sal <= 3000;
++-------+---------+------+--------+--------+
+| EmpNo | EmpName | Sal  | City   | DeptNO |
++-------+---------+------+--------+--------+
+| 2     | blake   | 2000 | Delhi  |     10 |
+| 3     | Allen   | 2500 | Mumbai |     20 |
+| 4     | King    | 3000 | Delhi  |     25 |
++-------+---------+------+--------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select * from emp
+    -> where sal between 2000 and 3000;
++-------+---------+------+--------+--------+
+| EmpNo | EmpName | Sal  | City   | DeptNO |
++-------+---------+------+--------+--------+
+| 2     | blake   | 2000 | Delhi  |     10 |
+| 3     | Allen   | 2500 | Mumbai |     20 |
+| 4     | King    | 3000 | Delhi  |     25 |
++-------+---------+------+--------+--------+
+3 rows in set (0.00 sec)
+
+
+3. NOT BETWEEN
+
+mysql> select * from emp
+    -> where sal NOT BETWEEN 2000 and 3000;  
++-------+---------+------+--------+--------+
+| EmpNo | EmpName | Sal  | City   | DeptNO |
++-------+---------+------+--------+--------+
+| 1     | Adams   | 1000 | Mumbai |     10 |
+| 5     | Ford    | 4000 | Mumbai |     30 |
++-------+---------+------+--------+--------+
+2 rows in set (0.00 sec)
+
+
+OR
+
+mysql> SELECT * FROM EMP
+    -> WHERE EmpName LIKE 'A%' OR EmpName LIKE 'B%';
++-------+---------+------+--------+--------+
+| EmpNo | EmpName | Sal  | City   | DeptNO |
++-------+---------+------+--------+--------+
+| 1     | Adams   | 1000 | Mumbai |     10 |
+| 2     | blake   | 2000 | Delhi  |     10 |
+| 3     | Allen   | 2500 | Mumbai |     20 |
++-------+---------+------+--------+--------+
+3 rows in set (0.00 sec)
+
+

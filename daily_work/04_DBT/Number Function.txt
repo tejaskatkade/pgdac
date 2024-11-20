@@ -1,0 +1,211 @@
+Number Function
+
+mysql> create table cust(Sal float);
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> insert into cust(sal)
+    -> values
+    -> (1234.567),
+    -> (1875.019),
+    -> (1352.615),
+    -> (1748.156);
+Query OK, 4 rows affected (0.05 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from cust;
++---------+
+| Sal     |
++---------+
+| 1234.57 |
+| 1875.02 |
+| 1352.61 |
+| 1748.16 |
++---------+
+4 rows in set (0.00 sec)
+
+mysql> select round(sal) from cust;
++------------+
+| round(sal) |
++------------+
+|       1235 |
+|       1875 |
+|       1353 |
+|       1748 |
++------------+
+4 rows in set (0.00 sec)
+
+mysql> select round(sal,1) from cust;
++--------------+
+| round(sal,1) |
++--------------+
+|       1234.6 |
+|         1875 |
+|       1352.6 |
+|       1748.2 |
++--------------+
+4 rows in set (0.00 sec)
+
+mysql> select round(sal,2) from cust;
++--------------+
+| round(sal,2) |
++--------------+
+|      1234.57 |
+|      1875.02 |
+|      1352.61 |
+|      1748.16 |
++--------------+
+4 rows in set (0.00 sec)
+
+mysql> select round(sal,-2) from cust;
++---------------+
+| round(sal,-2) |
++---------------+
+|          1200 |
+|          1900 |
+|          1400 |
+|          1700 |
++---------------+
+4 rows in set (0.06 sec)
+
+mysql> select round(sal,0) from cust;
++--------------+
+| round(sal,0) |
++--------------+
+|         1235 |
+|         1875 |
+|         1353 |
+|         1748 |
++--------------+
+4 rows in set (0.00 sec)
+
+mysql> select truncate(sal,0) from cust;
++-----------------+
+| truncate(sal,0) |
++-----------------+
+|            1234 |
+|            1875 |
+|            1352 |
+|            1748 |
++-----------------+
+4 rows in set (0.00 sec)
+
+mysql> select truncate(sal,1) from cust;
++-----------------+
+| truncate(sal,1) |
++-----------------+
+|          1234.5 |
+|            1875 |
+|          1352.6 |
+|          1748.1 |
++-----------------+
+4 rows in set (0.00 sec)
+
+mysql> select truncate(sal,-2) from cust;
++------------------+
+| truncate(sal,-2) |
++------------------+
+|             1200 |
+|             1800 |
+|             1300 |
+|             1700 |
++------------------+
+4 rows in set (0.00 sec)
+
+
+mysql> select ceil(sal) from cust;
++-----------+
+| ceil(sal) |
++-----------+
+|      1235 |
+|      1876 |
+|      1353 |
+|      1749 |
++-----------+
+4 rows in set (0.05 sec)
+
+mysql> select floor(sal) from cust;
++------------+
+| floor(sal) |
++------------+
+|       1234 |
+|       1875 |
+|       1352 |
+|       1748 |
++------------+
+4 rows in set (0.00 sec)
+
+mysql> select sign(-15) from dual;
++-----------+
+| sign(-15) |
++-----------+
+|        -1 |
++-----------+
+1 row in set (0.04 sec)
+
+mysql> select sign(15) from dual;
++----------+
+| sign(15) |
++----------+
+|        1 |
++----------+
+1 row in set (0.00 sec)
+
+
+mysql> select sign(0) from dual;
++---------+
+| sign(0) |
++---------+
+|       0 |
++---------+
+1 row in set (0.00 sec)
+
+mysql> select mod(9,5) from dual;
++----------+
+| mod(9,5) |
++----------+
+|        4 |
++----------+
+1 row in set (0.04 sec)
+
+mysql> select mod(9.2,5.2) from dual;
++--------------+
+| mod(9.2,5.2) |
++--------------+
+|          4.0 |
++--------------+
+1 row in set (0.03 sec)
+
+mysql> select sqrt(81) from dual;
++----------+
+| sqrt(81) |
++----------+
+|        9 |
++----------+
+1 row in set (0.00 sec)
+
+
+mysql> select power(10,3) from dual;
++-------------+
+| power(10,3) |
++-------------+
+|        1000 |
++-------------+
+1 row in set (0.04 sec)
+
+
+mysql> select power(25,1/2) from dual;
++---------------+
+| power(25,1/2) |
++---------------+
+|             5 |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> select abs(-10);
++----------+
+| abs(-10) |
++----------+
+|       10 |
++----------+
+1 row in set (0.06 sec)
+

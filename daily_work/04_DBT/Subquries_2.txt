@@ -1,0 +1,116 @@
+Subquries_2
+
+Using subqueries with DML commands
+
+mysql> update emp1 set sal = 10000
+    -> where job =
+    -> (select job from emp1
+    ->   where ename ='Kiran');
+ERROR 1093 (HY000): You can't specify target table 'emp1' for update in FROM clause
+mysql>
+
+-!! This is not allowed in MySQL 
+You are trying to update or delete from a table from which you are currently selecting
+
+mysql> update emp1 set sal = 10000
+    -> where job =
+    -> (select abcd.job from
+    ->  (select job from emp1
+    ->   where ename = 'Kiran') abcd);
+Query OK, 3 rows affected (0.05 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+mysql> select * from emp1;
++-------+--------+-------+--------+------+------+
+| Empno | Ename  | sal   | DeptNo | Job  | MGR  |
++-------+--------+-------+--------+------+------+
+| 1     | Arun   |  8000 | 1      | M    | 4    |
+| 2     | Ali    | 10000 | 1      | C    | 1    |
+| 3     | Kiran  | 10000 | 1      | C    | 1    |
+| 5     | Thomas | 10000 | 2      | C    | 4    |
+| 4     | Jack   |  9000 | 2      | M    | NULL |
++-------+--------+-------+--------+------+------+
+5 rows in set (0.00 sec)
+
+Multirow_subquery
+
+mysql> select * from emp1
+    -> where sal =
+    -> (select sal from emp1
+    ->  where job = 'C');
+ERROR 1242 (21000): Subquery returns more than 1 row
+
+mysql> select * from emp1
+    -> where sal = any
+    -> (select sal from emp1
+    ->  where job = 'C');
++-------+--------+-------+--------+------+------+
+| Empno | Ename  | sal   | DeptNo | Job  | MGR  |
++-------+--------+-------+--------+------+------+
+| 2     | Ali    | 10000 | 1      | C    | 1    |
+| 3     | Kiran  | 10000 | 1      | C    | 1    |
+| 5     | Thomas | 10000 | 2      | C    | 4    |
++-------+--------+-------+--------+------+------+
+3 rows in set (0.05 sec)
+
+mysql> select * from emp1
+    -> where sal In
+    -> (select sal from emp1
+    ->  where job = 'M');
++-------+-------+------+--------+------+------+
+| Empno | Ename | sal  | DeptNo | Job  | MGR  |
++-------+-------+------+--------+------+------+
+| 1     | Arun  | 8000 | 1      | M    | 4    |
+| 4     | Jack  | 9000 | 2      | M    | NULL |
++-------+-------+------+--------+------+------+
+2 rows in set (0.00 sec)
+
+mysql> select * from emp1
+    -> where sal =
+    -> (select min(sal) from emp1
+    ->  where job = 'M');
++-------+-------+------+--------+------+------+
+| Empno | Ename | sal  | DeptNo | Job  | MGR  |
++-------+-------+------+--------+------+------+
+| 1     | Arun  | 8000 | 1      | M    | 4    |
++-------+-------+------+--------+------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from emp1;
++-------+--------+-------+--------+------+------+
+| Empno | Ename  | sal   | DeptNo | Job  | MGR  |
++-------+--------+-------+--------+------+------+
+| 1     | Arun   |  8000 | 1      | M    | 4    |
+| 2     | Ali    |  7000 | 1      | C    | 1    |
+| 3     | Kiran  | 13000 | 1      | C    | 1    |
+| 5     | Thomas |  8000 | 2      | C    | 4    |
+| 4     | Jack   |  9000 | 2      | M    | NULL |
++-------+--------+-------+--------+------+------+
+5 rows in set (0.00 sec)
+
+-- Display all rows who are receiving a salary greater than all the manager
+
+mysql> select * from emp1
+    -> where sal > all		<-- special operator Logical AND
+    -> (select sal from emp1
+    ->  where job = 'M');
++-------+-------+-------+--------+------+------+
+| Empno | Ename | sal   | DeptNo | Job  | MGR  |
++-------+-------+-------+--------+------+------+
+| 3     | Kiran | 13000 | 1      | C    | 1    |
++-------+-------+-------+--------+------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from emp1
+    -> where sal >
+    -> (select max(sal) from emp1
+    ->  where job = 'M');
++-------+-------+-------+--------+------+------+
+| Empno | Ename | sal   | DeptNo | Job  | MGR  |
++-------+-------+-------+--------+------+------+
+| 3     | Kiran | 13000 | 1      | C    | 1    |
++-------+-------+-------+--------+------+------+
+1 row in set (0.00 sec)
+
+mysql>
+

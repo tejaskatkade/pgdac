@@ -1,0 +1,64 @@
+UPDATE
+
+mysql> UPDATE emp
+    -> SET sal = 10000
+    -> WHERE EmpNo = 1;
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from emp;
++-------+---------+-------+--------+--------+
+| EmpNo | EmpName | Sal   | City   | DeptNO |
++-------+---------+-------+--------+--------+
+| 1     | Adams   | 10000 | Mumbai |     10 |
+| 2     | blake   |  2000 | Delhi  |     10 |
+| 3     | Allen   |  2500 | Mumbai |     20 |
+| 4     | King    |  3000 | Delhi  |     25 |
+| 5     | Ford    |  4000 | Mumbai |     30 |
++-------+---------+-------+--------+--------+
+5 rows in set (0.00 sec)
+
+
+mysql> UPDATE emp
+    -> SET sal = sal + sal*0.4
+    -> WHERE EmpNo = 1;
+Query OK, 1 row affected (0.06 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from emp;
++-------+---------+-------+--------+--------+
+| EmpNo | EmpName | Sal   | City   | DeptNO |
++-------+---------+-------+--------+--------+
+| 1     | Adams   | 14000 | Mumbai |     10 |
+| 2     | blake   |  2000 | Delhi  |     10 |
+| 3     | Allen   |  2500 | Mumbai |     20 |
+| 4     | King    |  3000 | Delhi  |     25 |
+| 5     | Ford    |  4000 | Mumbai |     30 |
++-------+---------+-------+--------+--------+
+5 rows in set (0.00 sec)
+
+- updating multiple rows
+
+mysql> UPDATE emp
+    -> SET sal = 10000, city = 'Pune'
+    -> WHERE city = 'mumbai';
+Query OK, 3 rows affected (0.05 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+mysql> select * from emp;
++-------+---------+-------+-------+--------+
+| EmpNo | EmpName | Sal   | City  | DeptNO |
++-------+---------+-------+-------+--------+
+| 1     | Adams   | 10000 | Pune  |     10 |
+| 2     | blake   |  2000 | Delhi |     10 |
+| 3     | Allen   | 10000 | Pune  |     20 |
+| 4     | King    |  3000 | Delhi |     25 |
+| 5     | Ford    | 10000 | Pune  |     30 |
++-------+---------+-------+-------+--------+
+5 rows in set (0.00 sec)
+
+--updating complete coloumn
+mysql> UPDATE emp
+    -> SET sal = 12000;
+Query OK, 5 rows affected (0.04 sec)
+Rows matched: 5  Changed: 5  Warnings: 0

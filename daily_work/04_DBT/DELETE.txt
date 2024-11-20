@@ -1,0 +1,23 @@
+DELETE
+
+-- Deleting a row
+
+mysql> DELETE from emp
+    -> where empno = 10;
+
+mysql> Delete from emp
+    -> where city = 'Mumbai';
+
+
+-- Delete complete table
+mysql> delete from emp;
+// all rows deleted not a table
+
+-- To delete a table
+
+mysql> DROP table emp; 
+
+-- To delete multiple tables
+
+Drop table temp, dept, customer;
+

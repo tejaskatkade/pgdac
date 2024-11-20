@@ -1,0 +1,12 @@
+Creating New user in MySQL
+
+mysql> create user tejas@localhost identified by 'cdac';
+
+mysql> create schema cdac_mumbai;
+
+mysql> grant all privileges on cdac_mumbai.* to tejas@localhost;
+
+mysql> flush privileges;
+
+
+

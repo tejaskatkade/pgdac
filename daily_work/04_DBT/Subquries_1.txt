@@ -1,0 +1,115 @@
+Subquries_1
+
+mysql> select * from emp1;
++-------+--------+------+--------+------+------+
+| Empno | Ename  | sal  | DeptNo | Job  | MGR  |
++-------+--------+------+--------+------+------+
+| 1     | Arun   | 8000 | 1      | M    | 4    |
+| 2     | Ali    | 7000 | 1      | C    | 1    |
+| 3     | Kiran  | 3000 | 1      | C    | 1    |
+| 5     | Thomas | 8000 | 2      | C    | 4    |
+| 4     | Jack   | 9000 | 2      | M    | NULL |
++-------+--------+------+--------+------+------+
+
+mysql> select min(sal) from emp;
++----------+
+| min(sal) |
++----------+
+|    10000 |
++----------+
+1 row in set (0.05 sec)
+
+mysql> select ename , min(sal) from emp1;
+
+ERROR 1140 (42000): In aggregated query without GROUP BY, expression #1 of SELECT list contains nonaggregated column 'dbt_class.emp1.Ename'; this is incompatible with sql_mode=only_full_group_by
+
+-- In this way I can't get Name of person having minimum salary
+
+mysql> select ename from emp1
+    -> where sal = min(sal);
+ERROR 1111 (HY000): Invalid use of group function
+-- we can't use group function in where clause
+
+-- To solve above problem I have subquery
+
+mysql> select ename, sal from emp1
+    -> where sal =
+    -> (select min(sal) from emp1);
++-------+------+
+| ename | sal  |
++-------+------+
+| Kiran | 3000 |
++-------+------+
+1 row in set (0.00 sec)
+
+-- finding second largest salary
+
+mysql> select max(sal) from emp1
+    -> where sal <
+    -> (select max(sal) from emp1);
++----------+
+| max(sal) |
++----------+
+|     8000 |
++----------+
+1 row in set (0.00 sec)
+
+-- finding name of persons having 2nd highest salary
+
+mysql> select ename, sal from emp1
+    -> where sal =
+    -> (select max(sal) from emp1
+    -> where sal <
+    -> (select max(sal) from emp1));
++--------+------+
+| ename  | sal  |
++--------+------+
+| Arun   | 8000 |
+| Thomas | 8000 |
++--------+------+
+2 rows in set (0.00 sec)
+
+
+-- Finding all rows with the same dept no as of Thomas
+
+mysql> select * from emp1
+    -> where deptno =
+    -> (select deptno from emp1
+    -> where ename = 'Thomas');
++-------+--------+------+--------+------+------+
+| Empno | Ename  | sal  | DeptNo | Job  | MGR  |
++-------+--------+------+--------+------+------+
+| 5     | Thomas | 8000 | 2      | C    | 4    |
+| 4     | Jack   | 9000 | 2      | M    | NULL |
++-------+--------+------+--------+------+------+
+2 rows in set (0.04 sec)
+
+
+-- All rows with same job as kiran
+
+mysql> select * from emp1
+    -> where job =
+    -> (select job from emp1
+    ->  where ename ='Kiran');
++-------+--------+------+--------+------+------+
+| Empno | Ename  | sal  | DeptNo | Job  | MGR  |
++-------+--------+------+--------+------+------+
+| 2     | Ali    | 7000 | 1      | C    | 1    |
+| 3     | Kiran  | 3000 | 1      | C    | 1    |
+| 5     | Thomas | 8000 | 2      | C    | 4    |
++-------+--------+------+--------+------+------+
+3 rows in set (0.00 sec)
+
+-- All emp with jobs other than kiran
+
+mysql> select * from emp1
+    -> where job !=
+    -> (select job from emp1
+    ->   where ename ='Kiran');
++-------+-------+------+--------+------+------+
+| Empno | Ename | sal  | DeptNo | Job  | MGR  |
++-------+-------+------+--------+------+------+
+| 1     | Arun  | 8000 | 1      | M    | 4    |
+| 4     | Jack  | 9000 | 2      | M    | NULL |
++-------+-------+------+--------+------+------+
+2 rows in set (0.00 sec)

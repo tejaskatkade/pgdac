@@ -1,0 +1,234 @@
+--Fuctions
+
+mysql> select * from cust;
++-------+-------+
+| Fname | Lname |
++-------+-------+
+| Arun  | Purun |
+| Tarun | Arun  |
+| Sirun | Kirun |
+| Nutan | Purun |
++-------+-------+
+4 rows in set (0.00 sec)
+
+1. concat()
+
+mysql> select concat(Fname,Lname) from cust;
++---------------------+
+| concat(Fname,Lname) |
++---------------------+
+| ArunPurun           |
+| TarunArun           |
+| SirunKirun          |
+| NutanPurun          |
++---------------------+
+4 rows in set (0.04 sec)
+
+mysql> select concat(Fname,Lname) "Full Name" from cust;
++------------+
+| Full Name  |
++------------+
+| ArunPurun  |
+| TarunArun  |
+| SirunKirun |
+| NutanPurun |
++------------+
+4 rows in set (0.00 sec)
+
+mysql> select concat(concat(Fname,' '),Lname) "Name" from cust;
++-------------+
+| Name        |
++-------------+
+| Arun Purun  |
+| Tarun Arun  |
+| Sirun Kirun |
+| Nutan Purun |
++-------------+
+4 rows in set (0.00 sec)
+
+2. UPPER()
+mysql> select UPPER(Fname) from cust;
++--------------+
+| UPPER(Fname) |
++--------------+
+| ARUN         |
+| TARUN        |
+| SIRUN        |
+| NUTAN        |
++--------------+
+4 rows in set (0.00 sec)
+
+3. Lower()
+mysql> select LOWER(Fname) from cust;
++--------------+
+| LOWER(Fname) |
++--------------+
+| arun         |
+| tarun        |
+| sirun        |
+| nutan        |
++--------------+
+4 rows in set (0.05 sec)
+
+4. lpad
+
+mysql> select LPAD(Fname,20,' ') from cust;
++----------------------+
+| LPAD(Fname,20,' ')   |
++----------------------+
+|                 Arun |
+|                Tarun |
+|                Sirun |
+|                Nutan |
++----------------------+
+4 rows in set (0.05 sec)
+
+5. rpad
+
+mysql> select RPAD(Fname,25,' ') from cust;
++---------------------------+
+| RPAD(Fname,25,' ')        |
++---------------------------+
+| Arun                      |
+| Tarun                     |
+| Sirun                     |
+| Nutan                     |
++---------------------------+
+4 rows in set (0.04 sec)
+
+
+6. ltrim()
+
+mysql> select ltrim(fname) from cust;
++--------------+
+| ltrim(fname) |
++--------------+
+| Arun         |
+| Tarun        |
+| Sirun        |
+| Nutan        |
++--------------+
+4 rows in set (0.00 sec)
+
+
+mysql> select ltrim(lPAD(Fname,25,' ')) from cust;
++---------------------------+
+| ltrim(lPAD(Fname,25,' ')) |
++---------------------------+
+| Arun                      |
+| Tarun                     |
+| Sirun                     |
+| Nutan                     |
++---------------------------+
+4 rows in set (0.00 sec)
+
+mysql> select rtrim(fname) from cust;
++--------------+
+| rtrim(fname) |
++--------------+
+| Arun         |
+| Tarun        |
+| Sirun        |
+| Nutan        |
++--------------+
+4 rows in set (0.00 sec)
+
+mysql> select trim(fname) from cust;
++-------------+
+| trim(fname) |
++-------------+
+| Arun        |
+| Tarun       |
+| Sirun       |
+| Nutan       |
++-------------+
+4 rows in set (0.00 sec)
+
+7. substr()
+
+mysql> select substr(fname,3,2) from cust;
++-------------------+
+| substr(fname,3,2) |
++-------------------+
+| un                |
+| ru                |
+| ru                |
+| ta                |
++-------------------+
+4 rows in set (0.00 sec)
+
+mysql> select substr('Arun',3,2) from cust;
++--------------------+
+| substr('Arun',3,2) |
++--------------------+
+| un                 |
+| un                 |
+| un                 |
+| un                 |
++--------------------+
+4 rows in set (0.00 sec)
+
+mysql> select substr('Arun',2,3) from cust;
++--------------------+
+| substr('Arun',2,3) |
++--------------------+
+| run                |
+| run                |
+| run                |
+| run                |
++--------------------+
+4 rows in set (0.00 sec)
+
+mysql> select substr('Arun',2,3);
++--------------------+
+| substr('Arun',2,3) |
++--------------------+
+| run                |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select substr('Arun',2,3) from dual;
++--------------------+
+| substr('Arun',2,3) |
++--------------------+
+| run                |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select substr('New York',5);
++----------------------+
+| substr('New York',5) |
++----------------------+
+| York                 |
++----------------------+
+1 row in set (0.00 sec)
+
+mysql> select substr('New York',-4);
++-----------------------+
+| substr('New York',-4) |
++-----------------------+
+| York                  |
++-----------------------+
+1 row in set (0.03 sec)
+
+mysql> select substr('New York',-4,2);
++-------------------------+
+| substr('New York',-4,2) |
++-------------------------+
+| Yo                      |
++-------------------------+
+1 row in set (0.00 sec)
+
+Replace
+
+mysql> select replace(fname,'un','xy') from cust;
++--------------------------+
+| replace(fname,'un','xy') |
++--------------------------+
+| Arxy                     |
+| Tarxy                    |
+| Sirxy                    |
+| Nutan                    |
++--------------------------+
+4 rows in set (0.00 sec)
+

@@ -1,0 +1,63 @@
+
+mysql> select @autocommit;
++--------------------------+
+| @autocommit              |
++--------------------------+
+| NULL                     |
++--------------------------+
+1 row in set (0.00 sec)
+
+mysql> show variables like 'autocommit';
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| autocommit    | ON    |
++---------------+-------+
+1 row in set (0.00 sec)
+
+mysql> set autocommit = 0;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show variables like 'autocommit';
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| autocommit    | OFF   |
++---------------+-------+
+1 row in set (0.01 sec)
+
+
+mysql> insert into emp
+    -> values
+    -> ('7','Virat',14000,'Mumbai',30);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from emp;
++-------+---------+-------+--------+--------+
+| EmpNo | EmpName | Sal   | City   | DeptNO |
++-------+---------+-------+--------+--------+
+| 1     | Adams   | 12000 | Pune   |     10 |
+| 2     | blake   | 12000 | Delhi  |     10 |
+| 3     | Allen   | 12000 | Pune   |     20 |
+| 4     | King    | 12000 | Delhi  |     25 |
+| 5     | Ford    | 12000 | Pune   |     30 |
+| 6     | Tejas   | 10000 | Nashik |     40 |
+| 7     | Virat   | 14000 | Mumbai |     30 |
++-------+---------+-------+--------+--------+
+7 rows in set (0.00 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> select * from emp;
++-------+---------+-------+--------+--------+
+| EmpNo | EmpName | Sal   | City   | DeptNO |
++-------+---------+-------+--------+--------+
+| 1     | Adams   | 12000 | Pune   |     10 |
+| 2     | blake   | 12000 | Delhi  |     10 |
+| 3     | Allen   | 12000 | Pune   |     20 |
+| 4     | King    | 12000 | Delhi  |     25 |
+| 5     | Ford    | 12000 | Pune   |     30 |
+| 6     | Tejas   | 10000 | Nashik |     40 |
++-------+---------+-------+--------+--------+
+6 rows in set (0.00 sec)

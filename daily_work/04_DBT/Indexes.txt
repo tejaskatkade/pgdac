@@ -1,0 +1,40 @@
+Indexes
+mysql> select * from emp;
++-------+---------+-------+--------+--------+
+| EmpNo | EmpName | Sal   | City   | DeptNO |
++-------+---------+-------+--------+--------+
+| 1     | Adams   | 12000 | Pune   |     10 |
+| 2     | blake   | 12000 | Delhi  |     10 |
+| 3     | Allen   | 12000 | Pune   |     20 |
+| 4     | King    | 12000 | Delhi  |     25 |
+| 5     | Ford    | 12000 | Pune   |     30 |
+| 6     | Tejas   | 10000 | Nashik |     40 |
++-------+---------+-------+--------+--------+
+6 rows in set (0.08 sec)
+
+mysql> create index i_emp_empno on emp(empno);
+Query OK, 0 rows affected (0.12 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> show indexes from emp;
++-------+------------+-------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
+| Table | Non_unique | Key_name    | Seq_in_index | Column_name | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment | Visible | Expression |
++-------+------------+-------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
+| emp   |          1 | i_emp_empno |            1 | EmpNo       | A         |           6 |     NULL |   NULL | YES  | BTREE      |         |               | YES     | NULL       |
++-------+------------+-------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
+1 row in set (0.05 sec)
+
+mysql>
+mysql> create index i_emp_empno_deptno on emp(empno,deptno);
+Query OK, 0 rows affected (0.08 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> show indexes from emp;
++-------+------------+--------------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
+| Table | Non_unique | Key_name           | Seq_in_index | Column_name | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment | Visible | Expression |
++-------+------------+--------------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
+| emp   |          1 | i_emp_empno        |            1 | EmpNo       | A         |           6 |     NULL |   NULL | YES  | BTREE      |         |               | YES     | NULL       |
+| emp   |          1 | i_emp_empno_deptno |            1 | EmpNo       | A         |           6 |     NULL |   NULL | YES  | BTREE      |         |               | YES     | NULL       |
+| emp   |          1 | i_emp_empno_deptno |            2 | DeptNO      | A         |           6 |     NULL |   NULL | YES  | BTREE      |         |               | YES     | NULL       |
++-------+------------+--------------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+---------+------------+
+3 rows in set (0.01 sec)

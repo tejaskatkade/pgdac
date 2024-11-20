@@ -1,0 +1,87 @@
+Group / Aggregate Functions
+
+mysql> select sum(sal) from emp1;
++----------+
+| sum(sal) |
++----------+
+|    35000 |
++----------+
+1 row in set (0.05 sec)
+
+
+mysql> select avg(sal) "Sum" from emp1;
++------+
+| Sum  |
++------+
+| 7000 |
++------+
+1 row in set (0.00 sec)
+
+mysql> select min(sal) "Sum" from emp1;
++------+
+| Sum  |
++------+
+| 3000 |
++------+
+1 row in set (0.00 sec)
+
+mysql> select max(sal) "Sum" from emp1;
++------+
+| Sum  |
++------+
+| 9000 |
++------+
+1 row in set (0.00 sec)
+
+
+-- NOT HAVING NULL
+mysql> select count(sal) "Sum" from emp1;
++-----+
+| Sum |
++-----+
+|   5 |
++-----+
+1 row in set (0.00 sec)
+
+-- TOTAL NO OF EMP
+mysql> select count(*) "Sum" from emp1;
++-----+
+| Sum |
++-----+
+|   5 |
++-----+
+1 row in set (0.00 sec)
+
+-- NO OF EMP DONT GET SAL
+
+mysql> select count(*) - count(sal) "Sum" from emp1;
++-----+
+| Sum |
++-----+
+|   0 |
++-----+
+1 row in set (0.00 sec)
+
+mysql> select sum(sal)/count(sal) "Sum" from emp1;
++------+
+| Sum  |
++------+
+| 7000 |
++------+
+1 row in set (0.05 sec)
+
+mysql> select max(sal)/min(sal) "Sum" from emp1;
++------+
+| Sum  |
++------+
+|    3 |
++------+
+1 row in set (0.00 sec)
+
+mysql> select avg(sal) "Sum" from emp1;
++------+
+| Sum  |
++------+
+| 7000 |
++------+
+1 row in set (0.00 sec

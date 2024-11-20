@@ -1,0 +1,5 @@
+select distinct num
+from number n1
+where ( select count(distinct n2.num)
+from number n2
+where n2.num > n1.num) = 4;

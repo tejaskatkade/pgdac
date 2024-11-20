@@ -1,0 +1,102 @@
+Cursor
+
+create table emp3(
+empno int,
+ename varchar(15),
+sal int,
+deptno int
+);
+
+
+insert into emp3
+values
+(1,'A',5000,1),
+(2,'B',6000,1),
+(3,'C',7000,1),
+(4,'D',9000,2),
+(5,'E',8000,2),
+
+delimiter //
+create procedure abc()
+begin 
+	declare a int;
+	declare b varchar(15);
+	declare c int;
+	declare d int;
+	declare x int default 0;
+	
+	declare c1 cursor for select * from emp3;
+	open c1;
+		while x < 5 do
+			fetch c1 into a, b, c, d;
+			insert into tempp values(a, b);
+			set x = x + 1;
+		end while;
+	close c1;
+end; //
+delimiter ;
+
+delimiter //
+create procedure abc()
+begin 
+	declare a int;
+	declare b varchar(15);
+	declare c int;
+	declare d int;
+	declare x int default 0;
+	declare y int;
+	declare c1 cursor for select * from emp3;
+	select count(*) into y from emp3;
+	open c1;
+		while x < y do
+			fetch c1 into a, b, c, d;
+			insert into tempp values(a, b);
+			set x = x + 1;
+		end while;
+	close c1;
+end; //
+delimiter ;
+
+
+
+delimiter //
+create procedure abc()
+begin 
+	declare a int;
+	declare b varchar(15);
+	declare c int;
+	declare d int;
+	declare x int default 0;
+	declare y int;
+	declare c1 cursor for select * from emp3;
+	declare continue handler  for not found set y = 1;
+	open c1;
+		c1_loop:loop
+			fetch c1 into a, b, c, d;
+			if y = 1 then
+				leave c1_loop;
+			end if;
+			insert into tempp values(a, b);
+			
+		end loop c1_loop;
+	close c1;
+end; //
+delimiter ;
+
+
+delimiter //
+create procedure abc(in y int)
+begin
+	declare c1 cursor for select * from emp for update;
+	open c1;
+	open c2;
+end; //
+delimiter ; 
+call abc();
+
+
+delimiter //
+create procedure abc()
+begin 
+	insert into tempp values(y, 'Inside abc');
+end;

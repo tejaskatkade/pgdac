@@ -1,0 +1,88 @@
+CASE KEYWORD
+
+mysql> select
+    -> case
+    -> when job = 'M' then "Manager"
+    -> when job = 'C' then "Clerk"
+    -> end Job
+    -> from emp1;
++---------+
+| Job     |
++---------+
+| Manager |
+| Clerk   |
+| Clerk   |
+| Clerk   |
+| Manager |
++---------+
+5 rows in set (0.00 sec)
+
+
+mysql> select
+    -> case
+    -> when deptno = 1 then 'Traning'
+    -> when deptno = 2 then 'Export'
+    -> else 'Others'
+    -> end deptno
+    -> from emp1;
++---------+
+| deptno  |
++---------+
+| Traning |
+| Traning |
+| Traning |
+| Export  |
+| Export  |
++---------+
+5 rows in set (0.00 sec)
+
+mysql> select * from emp;
++-------+---------+-------+--------+--------+
+| EmpNo | EmpName | Sal   | City   | DeptNO |
++-------+---------+-------+--------+--------+
+| 1     | Adams   | 12000 | Pune   |     10 |
+| 2     | blake   | 12000 | Delhi  |     10 |
+| 3     | Allen   | 12000 | Pune   |     20 |
+| 4     | King    | 12000 | Delhi  |     25 |
+| 5     | Ford    | 12000 | Pune   |     30 |
+| 6     | Tejas   | 10000 | Nashik |     40 |
++-------+---------+-------+--------+--------+
+6 rows in set (0.00 sec)
+
+mysql> select empname , case
+    -> when deptno = 10 then "Ten"
+    -> when deptno = 20 then "Twenty"
+    -> when deptno = 30 then "Thirty"
+    -> when deptno = 40 then "Forty"
+    -> else "Other"
+    -> end deptno
+    -> from emp;
++---------+--------+
+| empname | deptno |
++---------+--------+
+| Adams   | Ten    |
+| blake   | Ten    |
+| Allen   | Twenty |
+| King    | Other  |
+| Ford    | Thirty |
+| Tejas   | Forty  |
++---------+--------+
+6 rows in set (0.00 sec)
+
+
+mysql> select ename Ename , sal Salary, case
+    -> when sign(sal-7000) = 1 then "High Income"
+    -> when sign(sal-7000) = -1 then "Low Income"
+    -> else "Normal Income"
+    -> end "Income Remark"
+    -> from emp1;
++--------+--------+---------------+
+| Ename  | Salary | Income Remark |
++--------+--------+---------------+
+| Arun   |   8000 | High Income   |
+| Ali    |   7000 | Normal Income |
+| Kiran  |   3000 | Low Income    |
+| Thomas |   8000 | High Income   |
+| Jack   |   9000 | High Income   |
++--------+--------+---------------+
+5 rows in set (0.00 sec)

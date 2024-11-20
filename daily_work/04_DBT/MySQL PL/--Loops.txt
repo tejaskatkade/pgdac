@@ -1,0 +1,107 @@
+--Loops
+
+
+
+!!! WARNING !!!
+!!! DANGEROUS !!!
+-- DO NOT FORGET TO INCREMENT X VALUE
+
+mysql> delimiter //
+mysql> create procedure abc()
+    -> Begin
+    ->  declare x int default 1;
+    ->  while x < 10 do
+    ->          insert into tempp values(x,'while loop');
+
+    ->          set x = x + 1;
+    ->  end while;
+    -> end; //
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> delimiter ;
+mysql> call abc();
+Query OK, 1 row affected (0.09 sec)
+
+mysql> select * from tempp;
++-------+------------+
+| first | sec        |
++-------+------------+
+|     1 | while loop |
+|     2 | while loop |
+|     3 | while loop |
+|     4 | while loop |
+|     5 | while loop |
+|     6 | while loop |
+|     7 | while loop |
+|     8 | while loop |
+|     9 | while loop |
++-------+------------+
+9 rows in set (0.00 sec)
+
+
+-- REPEAT
+mysql> delimiter //
+mysql> create procedure abc()
+    -> begin
+    ->  declare x int default 1;
+    ->  REPEAT
+    ->          INSERT INTO TEMPP VALUES(x,'Repeat');
+    ->  SET x = x + 1;
+    ->  UNTIL x > 5
+    ->  END REPEAT;
+    -> end; //
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> delimiter ;
+mysql> call abc();
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select * from tempp;
++-------+--------+
+| first | sec    |
++-------+--------+
+|     1 | Repeat |
+|     2 | Repeat |
+|     3 | Repeat |
+|     4 | Repeat |
+|     5 | Repeat |
++-------+--------+
+5 rows in set (0.00 sec)
+
+
+-- LOOP , LEAVE , ITERATE
+
+mysql> delimiter //
+mysql>  create procedure abc()
+    ->      begin
+    ->      declare x int default 1;
+    ->      pqr_loop:loop
+    ->               if x > 10 then
+    ->                       leave pqr_loop;
+    ->               end if;
+    ->               set x = x + 1;
+    ->               if mod(x,2) != 0 then
+    ->                       iterate pqr_loop;
+    ->               else
+    ->                       INSERT INTO TEMPP VALUES(x,'Loop'
+    -> );
+    ->               end if;
+    ->      end loop;
+    ->      end; //
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> delimiter ;
+mysql> call abc();
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from tempp;
++-------+------+
+| first | sec  |
++-------+------+
+|     2 | Loop |
+|     4 | Loop |
+|     6 | Loop |
+|     8 | Loop |
+|    10 | Loop |
++-------+------+
+5 rows in set (0.00 sec)
