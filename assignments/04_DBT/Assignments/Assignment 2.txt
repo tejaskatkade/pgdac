@@ -1,0 +1,18 @@
+Assignment 2
+
+Introducing Relational Databases.
+1) Which field of the Customers table is the primary key?
+-> cnum
+
+2) What is the 4th column of the Customers table?
+-> Rating
+
+3) What is another word for row? For column?
+	Row    -> Tuple 
+	Column -> Atribute
+
+4) Why isn’t it possible to see the first five rows of a table?
+-> In RDBMS, rows of the table are not stored sequentially; they are not stored in any specific order.
+Rows of the table are scattered(Fragmented) all over the database server Hard Disk.
+
+Tables represent unorder sets. so there is no such thing as first five rows or last row.

@@ -1,0 +1,11 @@
+Assignment 3
+
+Overview of SQL.
+1) Does ANSI recognize the data type DATE?
+
+-> The ANSI SQL standard defines the Gregorian calendar for date data types. The standard format for a date is yyyy-MM-dd, which is the same as the ISO 8601 definition for DATE.
+
+
+2) Which subdivision of SQL is used to insert values in tables?
+
+-> The subdivision of SQL used to insert values in tables is called Data Manipulation Language (DML), and the specific command used is "INSERT INTO"
