@@ -1,0 +1,50 @@
+Client & Server Technical Aspects : 
+
+Analogy for request :
+
+(Note : These technical aspect are same for all the clients and server regadless of the tech used)
+
+
+1. Client sends request to server
+
+- primary need to send request
+	- IP
+	- URL (endpoint)
+	
+2. Methods of the request :
+  (Purpose of the request)
+Is it for - getting data from server
+	  - saving data on the server
+	  - deleting data
+	  - updating data
+
+  a).  GET
+  b).  POST
+  c).  PUT
+  d).  DELETE
+  e).  PATCH
+
+By default method GET
+
+
+Analogy for the response/server :
+
+1. server will accepte the request
+2. It will start the processing
+3. Server will generate the response
+
+   we have certain properties associated with the response
+   1. Response Data : -> Array, String, page  
+   2. Response Status (status code e.g.. 200 OK) ->  Static code is always a Numeric value and a message associated with
+	200 201 202 ...299 -> success event from server
+
+	300 301 ... 399 -> Redirection message 
+	400 401 ... 499 -> Error due to client mistake
+	500 501 ... 599 -> Error due to server fault
+
+
+
+
+
+
+

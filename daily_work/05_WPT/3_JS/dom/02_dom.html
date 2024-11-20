@@ -1,0 +1,21 @@
+ <!-- Better way to use dom  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" value="click me" id="btn">
+    
+</body>
+<script>
+    var myBtn =  document.getElementById("btn");
+    console.log(myBtn);
+    myBtn.onclick = ()=>{
+        alert("You Clicked Button")
+    }
+</script>
+</html>

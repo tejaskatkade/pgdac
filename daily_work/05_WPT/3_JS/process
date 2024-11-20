@@ -1,0 +1,44 @@
+Types of process in JS :
+
+1 . Synchronous : 
+
+-- process get excuted one by one.
+
+p1-> 2 sec
+p2-> 3 sec      -- p2 need to wait till p1 get executed
+p3-> 1 sec
+p4-> 1 sec
+
+-- All process get executed in "Blocking Nature"
+-- Till the first task is not completed, the next task will not be started
+-- Next task has to wait to start its execution until the first one has completed its job
+
+function sum(){
+
+}
+
+function power(){
+
+}
+
+function factorial(){
+
+} 
+
+power()      --> 2 sec 
+factorial()  --> 4 sec
+sum()        --> 1 sec
+
+
+Power() get excuted for 2 sec then factorial for 4 sec then sum() for 1 sec.
+Total it requires 7 sec
+
+
+const s =  sum(2,3);
+const f = fractorial(s);
+const c = power(f,3);
+
+In above cases there is dependency, power -> factorial -> sum  for the above case we must go with Synchronous approach
+
+
+2 . Asynchronous

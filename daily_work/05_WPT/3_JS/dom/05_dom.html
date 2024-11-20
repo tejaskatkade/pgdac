@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="https://www.google.com" id="link"> Follow Me</a>
+    <br>
+    <input type="text" value="click me" id="btn">
+    <div id="container"></div>
+    
+</body>
+<script>
+   var myBtn = document.getElementById("btn");
+    myBtn.onclick = ()=>{
+        var linkEle = document.getElementById("link");
+        var value = linkEle.getAttribute("href");
+        console.log(value);
+        linkEle.setAttribute("href","https://flipkart.com");
+   
+    }
+</script>
+</html>

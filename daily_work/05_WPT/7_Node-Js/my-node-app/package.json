@@ -1,0 +1,16 @@
+{
+  "name": "my-node-app",
+  "version": "1.0.0",
+  "description": "The first node project",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tejas",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1",
+    "my-node-app": "file:"
+  }
+}

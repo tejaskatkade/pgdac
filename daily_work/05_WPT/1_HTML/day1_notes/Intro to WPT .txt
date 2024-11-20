@@ -1,0 +1,85 @@
+Intro to WPT :
+--------------------------------------
+
+Desktop :The apps which are running directly on OS
+e.g. Notepad, V.S. code,  chrome
+First we need to install them
+ 
+Mobile Apps
+
+Web Apps :Doesn't need to be installed
+
+Client and Server
+
+Client :
+->Device/ Browser on which we are
+->Devices which request services to 
+
+Server : to make website reach global
+-> Machine similar to PC/ Laptop
+-> server has Ram, CPU, Storage units
+
+IP address : to reach web application
+domain name
+
+DNS : Domain name and corresponding IP mapping
+
+
+What tech are required to develop the web apps: -
+
+Frontend : UI (Structure of application)
+Use to display application
+HTML, css, JS
+Bootstrap, Jquery, React
+
+Backend : Operations (Processing) and Database 
+
+operations : c, C++, Java, JS, Python, Node JS
+Database : MongoDB, MySQL, QLServer, SQLite 
+
+HTML, CSS,
+JS, Node, JS,
+MySQL, MongoDB
+
+
+HTML : (Hyper Text Markup Language)
+To make the structure of  website
+Use to make layout of web app, Use to display content on the web page
+
+CSS:  cascading style sheet : styling/ beautification of web page
+
+JS : For client side Scripting
+     Form Validations, animations, arithmetic          
+     operations, popups
+Initial name of js : LiveScript	
+
+Bootstrap : Responsive
+React : Library to develop to front end of web app
+
+Backend + operations
+
+JS, Node JS
+
+Execution of JS : JS Engine (interpreter)
+Every browser has a JS Engine.
+e.g. - V8 Engine
+     - Spider Monkey
+
+Node Js : Runtime Environment for JS.
+	  Not a language, Not a Library.
+ 
+  	  - Open Source 
+	  - use to create servers, sockets
+
+
+Express JS : 
+
+
+		MERN
+	       -------
+
+
+
+
+
+

@@ -1,0 +1,118 @@
+22-10-2024
+
+HTML : is only creating layout of UI. It is used to display data in the web page
+
+- In HTML we have to use inbult Tags
+
+syntax for tags
+
+ <TAGNAME>       </TAGNAME>
+opening tag     closing tag 
+
+e.g..
+<h1> heading </h1>
+
+extension for file :-
+.html     OR    .htm
+
+
+
+<html>
+    <head>
+        <title>
+            My First Page
+        </title>
+
+    </head>
+    <body>
+	// Website Containt
+        <h1>Hello World</h1>
+    </body>
+</html>
+
+
+- html is case sensitive
+- html is error free
+
+- current version of HTML
+	HTML5
+
+
+- <!DOCTYPE html>
+
+	To let the browser know that we utilizing the latest version of HTML and browser will enable HTML's latest feature in our web pages
+
+	Helps in backword compatibility(browser)
+
+Two types of tags :
+1. Container tags : Opening closing
+2. Empty tags : only opening 
+	e.g. - <br>
+	     - <img>
+
+
+
+Attribute :
+
+<p align=""> 
+- align is attribute for <p>
+
+<a href="">
+- href is attribute of <a> (anchor tag)
+	
+<img src="pic.jpg">
+
+-suppose we added that pic in images folder
+
+<img src="images/pic.jpg">
+
+- now we added index.html in pages folder so we need come one folder back then need to go in the images folder so 
+
+../   -> to go one folder back
+
+ 
+<img src="../images/pic.jpg">
+
+
+superscript and subscript
+
+<sup>		<sub>
+
+
+
+List :- series of items
+
+1. Ordered List :- labels will follow certain sequence
+
+<ol>
+                <li>Mumbai</li>
+                <li>Delhi</li>
+                <li>Kolkata</li>
+                <li>Chennai</li>
+                <li>Nashik</li>
+</ol>
+
+Atrributes
+1) type
+
+ default type is 1
+ available type 
+	- A
+	- a
+	- 1
+	- I
+	- i 
+
+2) start : to start from particular val
+
+2. Unordered List :- 
+	type : disc, circle, square
+
+
+
+
+
+
+
+
+
