@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+            margin-left: 20%;
+            margin-right: 20%;
+        }
+        .green{
+            color: green;
+        }
+
+        #l1{
+            width: 45.5%;
+        }
+        .date{
+            position: absolute;
+            right: 23%;
+            margin-top: auto;
+        }
+        div{
+            padding: 15px;
+        }
+        .c3{
+            position: absolute;
+            left: 31%;
+        }
+        .c2{
+            position: absolute;
+            right: 23%;
+        }
+        .c1{
+            position: absolute;
+            right: 40%;
+        }
+        .deco{
+            text-decoration: overline;
+        }
+        #same{
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <div >
+        <h2>Registration <span class="green">Form</span></h2>
+        <h6 class="date">DATE OF REGISTRARION</h6>
+        <br>
+        <input class="date" type="date">
+        <h3>PERSONAL INFORMATION</h3>
+    </div>
+    <div id="form">
+        <form action="">
+
+            <label >Full name :</label>
+            <input class="c3" id="l1" type="text">
+            <br><br>
+            <label for="">Nickname :</label>
+            <input class="c3" type="text">
+            <label class="c1">Place Of Birth :</label>
+            <input class="c2" type="text">
+            <br><br>
+            <label for="">Date of Birth :</label>
+            <input class="c3" type="date">
+            <label class="c1" >Nationality :</label>
+            <input class="c2" type="text">
+            <br><br>
+            <label for="">Email : </label>
+            <input class="c3" type="email">
+            <label class="c1" >Domacile : </label>
+            <input class="c2" type="text">
+            <br><br>
+            <label for="">Gender :</label>
+            <input  type="radio" name="Gender">
+            <label for="">Male</label>
+            <input type="radio" name="Gender">
+            <label for="">Female</label>
+            <label class="c1" >CP Domicile :</label>
+            <input class="c2" type="text">
+            <br><br>
+            <label for="">Marital Status :</label>
+            <input class="c3" type="text">
+            <label class="c1" >Start Time :</label>
+            <input class="c2"  type="text">
+            <br><br>
+            <label for="">Country :</label>
+            <input class="c3" type="text">
+            <label class="c1" >Post Code :</label>
+            <input class="c2" type="number">
+            <br><br>
+            <label for="">National id No :</label>
+            <input class="c3" type="text">
+            <label class="c1" >Phone :</label>
+            <input class="c2" type="text">
+            <br><br>
+        </form>
+    </div>
+    
+    <div id="form">
+        <form action="">
+            <h3>ADDRESS</h3>
+            <label >Present Address :</label>
+            <input class="c3" id="l1" type="text">
+            <br><br>
+            <label for="">The City : :</label>
+            <input class="c3" type="text">
+            <label class="c1">Present State :</label>
+            <input class="c2" type="text">
+            <br><br>
+            <label for="">Zip Code :</label>
+            <input class="c3" type="number">
+            <label class="c1">Student Trustee :</label>
+            <input class="c2" type="text">
+    </div>
+
+    <div>
+        <h3 id="same">ADDRESS <span class="green">SCHOOL : </span> </h3>
+        <br><br>
+        <span class="deco c1">Register Signature</span>
+        <span class="deco c2">Officer Signature</span>
+        <br>
+        <label >A: 123 AnyWhere St.. Any City. ST 12345</label>
+        <h3 class="c2">THANK YOU <span class="green">FOR REGISTRATION</span></h3>
+        <br>
+        <label >P: 123-456-789</label>
+        <label class="c3">E: Hello @gamil.com</label>
+    </div>
+    
+</body>
+</html>

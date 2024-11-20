@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container1{
+            width: 40%;
+            height: 100%;
+            padding: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 4%;
+            background-color: antiquewhite;
+            color: brown;
+            font-size: large;
+            border-radius: 20px;
+            text-align: center;   
+            
+        }
+        
+        input{
+            width: 85%;
+            margin: 12px;
+            padding: 8px 10px;
+            border-radius: 7px;
+            border:0cap;
+        }
+        #button1{
+            border: 0cap;
+            padding: 10px 20px;
+            color: azure;
+            background-color: brown;
+            border-radius: 10px;
+        }
+        #display{
+            text-align: justify;
+        }
+
+    </style>
+    <script>
+        function print(){
+            const d = document.getElementById("display");
+            const f = document.getElementById("firstName").value;
+            const l = document.getElementById("lastName").value;
+            const n = document.getElementById("number").value;
+            const e = document.getElementById("email").value;
+
+            const l1 = document.getElementById("l1");
+            const l2 = document.getElementById("l2");
+            const l3 = document.getElementById("l3");
+            const l4 = document.getElementById("l4");
+            
+            d.style.width = "40%";
+            d.style.height = "100%";
+            d.style.padding = "20px";
+            d.style.marginLeft="auto";
+            d.style.marginRight="auto";
+            d.style.marginTop= "1%";
+            d.style.backgroundColor="antiquewhite";
+            d.style.color="brown";
+            d.style.fontSize="large";
+            d.style.borderRadius= "20px";
+            d.style.textAlign="Justify";
+
+            l1.innerHTML = "First Name : "+f;
+            l2.innerHTML = "Last Name : "+l;
+            l3.innerHTML = "Number : "+n;
+            l4.innerHTML = "Email : "+e;
+        }
+    </script>
+</head>
+<body>
+    <div class="container1">
+        
+        <input type="text" id="firstName" placeholder="Enter Name">
+        <input type="text" id="lastName" placeholder="Last Name">
+        <input type="number" id="number" placeholder="Contact Number">
+        <input type="email" id="email" placeholder="Email Id">
+        <button onclick="print()" id="button1" type="submit">Sumbit</button>
+    </div>
+    <div id="display" id="container2">
+        <label id="l1"></label><br>    
+        <label id="l2"></label><br>    
+        <label id="l3"></label><br>    
+        <label id="l4"></label><br>    
+    
+    </div>
+</body>
+</html>

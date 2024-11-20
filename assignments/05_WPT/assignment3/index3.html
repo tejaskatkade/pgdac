@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width: 20%;
+            height: 200px;
+            padding: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 7%;
+            background-color: antiquewhite;
+            color: brown;
+            font-size: large;
+            border-radius: 20px;
+            text-align: center;   
+        }
+        button {
+            border: 0cap;
+            padding: 10px 20px;
+            color: azure;
+            background-color: brown;
+            border-radius: 10px;
+        }
+        select{
+            border: 0cap;
+            padding: 10px 20px;
+            color: azure;
+            background-color: brown;
+            border-radius: 10px;
+            margin-left: 3px;
+        }
+    </style>
+    <script>
+        function removeIt(){
+            const index = document.getElementById("list").selectedIndex;
+            const l = document.getElementById("list");
+            l.remove(index);
+            
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <select name="" id="list">
+            <option>Mumbai</option>
+            <option>Pune</option>
+            <option>Nashik</option>
+            <option>Delhi</option>
+            <option>Chennai</option>
+        </select>
+        <button onclick="removeIt()" >Remove me </button>
+    </div>
+</body>
+</html>

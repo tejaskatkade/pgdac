@@ -1,0 +1,26 @@
+*{
+    margin: 0.5%;
+    background-color: #e5f0f1;
+}
+body{
+    border: 5px solid black;
+    
+}
+h2{
+    background-color: rgb(204, 231, 232);
+    text-align: center;
+    
+}
+h3{
+    text-align: center;
+}
+
+#l1{
+    padding-right: 800px;
+}
+#l2{
+    padding-right: 780px;
+}
+#l3{
+    padding-right: 815px;
+}

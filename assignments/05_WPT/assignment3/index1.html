@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width: 75%;
+            height: 100%;
+            padding: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 7%;
+            background-color: antiquewhite;
+            color: brown;
+            font-size: large;
+            border-radius: 20px;
+            text-align: center;   
+            
+        }
+        #container p{
+            text-align: justify;
+        }
+
+        #button1{
+            border: 0cap;
+            padding: 10px 20px;
+            color: azure;
+            background-color: brown;
+            border-radius: 10px;
+        }
+
+    </style>
+
+    <script>
+        function populatePara(){
+            const p = document.getElementById("para");
+            p.style.color = "black";
+            p.style.fontFamily = "Cambria, Cochin, Georgia, Times, 'Times New Roman', serif";
+            p.style.fontSize = "medium";
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <p id="para">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, eius aliquid. Molestiae dolore nemo, odio blanditiis deserunt aut facere quam non veritatis, dolorum delectus error sit dolores nulla quos asperiores architecto, officia dignissimos esse eius nobis provident? Vitae modi voluptas assumenda inventore. Mollitia delectus nulla harum, ex et pariatur autem culpa quidem sunt voluptate est quisquam quam repellendus expedita nesciunt corrupti nostrum beatae accusantium dicta, consectetur rerum doloremque. Neque, provident. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique itaque ipsum tempore adipisci alias, a temporibus illo nostrum. Ipsum, repudiandae, soluta provident dolorem dolor ullam sit totam cupiditate debitis necessitatibus, accusantium deserunt magnam nemo. Aliquam ipsum nostrum ipsa fugiat ratione odio cum similique sint sequi vero. Animi possimus minima qui quidem sit nobis voluptates suscipit quia fugit, iusto, iure maiores doloribus! Eius quo pariatur nisi quae iusto eaque exercitationem totam laudantium ea voluptatem illum dicta, dignissimos nulla eligendi dolor, harum corrupti, explicabo quos? Culpa et voluptatibus, enim totam ipsum vero!
+
+        </p>
+        <button onclick="populatePara()" id="button1"> Click Me </button>
+    </div>
+</body>
+</html>
